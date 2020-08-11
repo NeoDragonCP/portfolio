@@ -6,9 +6,6 @@ import Card from "../styled-components/Card";
 import ColumnContainer from "../styled-components/ColumnContrainer";
 import RowContainer from "../styled-components/RowContainer";
 
-/* project images */
-import ProjectScreenshotPassword from "../images/PasswordGeneratorDesktop.png";
-
 const ProjectScreenshot = styled.div`
   width: 100%;
   height: 270px;
@@ -45,7 +42,7 @@ const ProjectTag = styled.div`
 `;
 
 const ProjectDetailsContainer = styled(ColumnContainer)`
-  padding: 0 0 0.5rem 0.5rem;
+  padding: 0 0.5rem 0.5rem 0.5rem;
   text-align: left;
   h4 {
     font-size: 24px;
@@ -68,7 +65,12 @@ const ButtonGithub = styled(Button)`
 
 export default function ProjectCard(props) {
   // Destructuring props
-  const { title, description, tags } = props;
+  const { title, description, tags, imageURL } = props;
+
+  /*
+  console.log("../images/PasswordGeneratorDesktop.png");
+  console.log(imageURL);
+  */
 
   // * * * * *
   // Button presses
@@ -100,9 +102,9 @@ export default function ProjectCard(props) {
 
   return (
     <React.Fragment>
-      <Card width="320px" height="510px" fontColor="#016e9f" padding="0 0 0 0">
+      <Card width="320px" height="520px" fontColor="#016e9f" padding="0 0 0 0">
         <ProjectScreenshot>
-          <img src={ProjectScreenshotPassword} alt="project screenshot" />
+          <img src={process.env.PUBLIC_URL + imageURL} alt="screenshot" />
         </ProjectScreenshot>
         <ProjectDetailsContainer>
           <h4>{title}</h4>
@@ -111,9 +113,9 @@ export default function ProjectCard(props) {
               ? tags.map((tag) => <ProjectTag key={tag}>{tag}</ProjectTag>)
               : ""}
           </RowContainer>
-          <p>{description}</p>
+          <p style={{ display: "flex", flex: "1,1,0" }}>{description}</p>
         </ProjectDetailsContainer>
-        <RowContainer justifyContent="space-evenly">
+        <RowContainer bottom="-20px" justifyContent="space-evenly">
           <Button type="primary" onClick={handleDemoClick}>
             Demo
           </Button>

@@ -6,7 +6,7 @@ import styled from "styled-components";
 
 const RowContainer = styled.div`
   width: ${(props) => props.width || "100%"};
-  height: ${(props) => props.height || "auto"};
+  height: ${(props) => props.height || ""};
   min-height: min-content;
   background-color: ${(props) => props.backgroundColor || ""};
   color: ${(props) => props.fontColor || "black"};
@@ -14,10 +14,12 @@ const RowContainer = styled.div`
   padding: ${(props) => props.padding || ""};
   margin: ${(props) => props.margin || ""};
 
-  position: relative;
+  position: ${(props) => props.position || "relative"};
+  bottom: ${(props) => props.bottom || ""};
 
   display: flex;
   flex-wrap: nowrap;
+  flex: 1, 1, 0;
 
   align-items: ${(props) => props.alignItems || ""};
   justify-content: ${(props) => props.justifyContent || ""};

@@ -21,6 +21,8 @@ const ColumnContainer = styled.div`
 
   flex-wrap: nowrap;
 
+  text-align: ${(props) => props.textAlign || ""};
+
   overflow-x: hidden;
   overflow-y: auto;
 

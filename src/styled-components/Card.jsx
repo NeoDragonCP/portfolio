@@ -6,7 +6,7 @@ import styled from "styled-components";
 
 const Card = styled.div`
   width: ${(props) => props.width || "200px"};
-  height: ${(props) => props.height || "250px"};
+  min-height: ${(props) => props.height || "250px"};
   cursor: ${(props) => props.cursorStyle || "default"};
 
   padding: ${(props) => props.padding || "0.4rem 0 0 1rem"};
