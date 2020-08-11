@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/portfolio/static/css/main.19b367b1.chunk.css",
+    "main.js": "/portfolio/static/js/main.e33e3983.chunk.js",
+    "main.js.map": "/portfolio/static/js/main.e33e3983.chunk.js.map",
+    "runtime-main.js": "/portfolio/static/js/runtime-main.209c2d7e.js",
+    "runtime-main.js.map": "/portfolio/static/js/runtime-main.209c2d7e.js.map",
+    "static/js/2.70fd9b8d.chunk.js": "/portfolio/static/js/2.70fd9b8d.chunk.js",
+    "static/js/2.70fd9b8d.chunk.js.map": "/portfolio/static/js/2.70fd9b8d.chunk.js.map",
+    "index.html": "/portfolio/index.html",
+    "precache-manifest.4600406974079ed206b47e4db602de21.js": "/portfolio/precache-manifest.4600406974079ed206b47e4db602de21.js",
+    "service-worker.js": "/portfolio/service-worker.js",
+    "static/css/main.19b367b1.chunk.css.map": "/portfolio/static/css/main.19b367b1.chunk.css.map",
+    "static/js/2.70fd9b8d.chunk.js.LICENSE.txt": "/portfolio/static/js/2.70fd9b8d.chunk.js.LICENSE.txt",
+    "static/media/CPMaskLogo2.png": "/portfolio/static/media/CPMaskLogo2.a6cff279.png",
+    "static/media/Me2.jpg": "/portfolio/static/media/Me2.9d0bee13.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.209c2d7e.js",
+    "static/js/2.70fd9b8d.chunk.js",
+    "static/css/main.19b367b1.chunk.css",
+    "static/js/main.e33e3983.chunk.js"
+  ]
+}
