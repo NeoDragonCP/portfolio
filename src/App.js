@@ -51,7 +51,12 @@ function App() {
           justifyContent="center"
           textAlign="center"
         >
-          <img src={CPLogoPic} alt="Calis Projects Logo" />
+          <img
+            src={CPLogoPic}
+            alt="Calis Projects Logo"
+            width="420px"
+            height="260px"
+          />
           <p style={{ fontSize: "1.1rem", paddingBottom: "4rem" }}>
             Creative software developer with 8 years of expertise across mobile
             and web games and applications.
@@ -118,7 +123,7 @@ function App() {
             description="Custom made, reusable, styled-components. Easily change styles and expand elements using props."
             tags={["#React", "#Components"]}
             imageURL="/WebsiteCodeScreenshot.png"
-            demoURL="https://neodragoncp.github.io/currency-converter/"
+            demoURL="https://neodragoncp.github.io/portfolio/index.html"
             githubURL="https://github.com/NeoDragonCP/portfolio"
           />
         </RowContainer>

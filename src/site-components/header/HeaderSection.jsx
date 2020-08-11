@@ -42,7 +42,7 @@ const HeaderImage = styled.div`
 
   /* Reposition on mobile */
   @media (max-width: 768px) {
-    left: 40%;
+    left: 45%;
     top: 32%;
   }
 
