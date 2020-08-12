@@ -94,6 +94,15 @@ const FactSection = styled.div`
 `;
 
 export default function GameCard(props) {
+  const {
+    appIcon,
+    title,
+    facebookLink,
+    twitterLink,
+    wikiLink,
+    youtubeLink,
+  } = props;
+
   return (
     <React.Fragment>
       <BaseCard>
@@ -102,11 +111,11 @@ export default function GameCard(props) {
             <div className="topdetails">
               <img
                 className="logo"
-                src={process.env.PUBLIC_URL + "/zenformsappicon.png"}
+                src={process.env.PUBLIC_URL + appIcon}
                 alt="app-icon"
               />
               <ColumnContainer padding="0px 1rem 0px 1rem">
-                <h2>ZENFORMS: Protectors</h2>
+                <h2>{title}</h2>
                 <p style={{ paddingBottom: "1rem" }}>
                   A 2D RPG for iOS, Android.
                   <br /> Capture monsters, battle others, and go on an amazing
@@ -120,7 +129,7 @@ export default function GameCard(props) {
                 </p>
                 <p>
                   <a
-                    href="https://twitter.com/zenforms"
+                    href={twitterLink}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -128,24 +137,20 @@ export default function GameCard(props) {
                   </a>
 
                   <a
-                    href="https://www.youtube.com/user/CalisProjectsOffical"
+                    href={youtubeLink}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
                     Youtube
                   </a>
                   <a
-                    href="https://www.facebook.com/zenforms/"
+                    href={facebookLink}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
                     Facebook
                   </a>
-                  <a
-                    href="https://zenforms.fandom.com/wiki/ZENFORMS:_Protectors_Wiki"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
+                  <a href={wikiLink} target="_blank" rel="noopener noreferrer">
                     Wiki
                   </a>
                 </p>
@@ -177,7 +182,10 @@ export default function GameCard(props) {
                 src={process.env.PUBLIC_URL + "/zpscreen3.png"}
                 alt="picking-your-starter"
               />
-              <img src={process.env.PUBLIC_URL + "/zpscreen1.png"} alt="2-v1" />
+              <img
+                src={process.env.PUBLIC_URL + "/zpscreen1.png"}
+                alt="2-v-1"
+              />
               <img
                 src={process.env.PUBLIC_URL + "/zpscreen5.png"}
                 alt="online-mode"

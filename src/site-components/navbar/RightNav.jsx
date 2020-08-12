@@ -9,7 +9,12 @@ export default function RightNav(props) {
 
   // Jump to ref
   function handleScrollToRef(ref) {
-    window.scrollTo(0, ref.current.offsetTop);
+    const scrollOptions = {
+      top: ref.current.offsetTop,
+      behavior: "smooth",
+    }; // for smooth scrolling
+    window.scroll(scrollOptions);
+
     closeNav();
   }
 

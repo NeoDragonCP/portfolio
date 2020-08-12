@@ -161,7 +161,14 @@ function App() {
           ZENFORMS: Protectors launch trailer.
           <br />
           <br />
-          <GameCard />
+          <GameCard
+            appIcon="/zenformsappicon.png"
+            title="ZENFORMS: Protectors"
+            facebookLink="https://www.facebook.com/zenforms/"
+            twitterLink="https://twitter.com/zenforms"
+            wikiLink="https://zenforms.fandom.com/wiki/ZENFORMS:_Protectors_Wiki"
+            youtubeLink="https://www.youtube.com/user/CalisProjectsOffical"
+          />
         </ColumnContainer>
       </SectionContent>
       <SectionContent
