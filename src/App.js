@@ -37,13 +37,14 @@ function App() {
     <div className="App" ref={homeRef}>
       <Navbar open={open}>
         <div>
-          {/*Dont need to pass props since RightNav is part of Navbar */}
           <RightNav
+            open={open}
             homeRef={homeRef}
             aboutMeRef={aboutMeRef}
             webProjectsRef={webProjectsRef}
             gamesRef={gamesRef}
             contactMeRef={contactMeRef}
+            closeNav={() => setOpen(false)}
           />
           <Burger open={open} onClick={() => setOpen(!open)} />
         </div>
