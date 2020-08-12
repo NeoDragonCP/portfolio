@@ -1,9 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 
-/* Profile pic */
-import ProfilePic from "../../images/Me2.jpg";
-
 const HeaderBanner = styled.div`
   position: relative;
   width: 100%;
@@ -106,12 +103,12 @@ const HeaderFlavorText = styled.div`
 const SocialMediaIcon = styled.div`
   position: relative;
 
-  width: 80px;
-  height: 80px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
-  background-color: #26afed;
+  background-color: #42c3ff;
   color: #bbe1fa;
-  font-size: 50px;
+  font-size: 40px;
 
   z-index: 10;
 
@@ -121,7 +118,7 @@ const SocialMediaIcon = styled.div`
 
   cursor: pointer;
 
-  left: 870px;
+  left: 886px;
   top: 154px;
 
   transition: all 0.2s;
@@ -140,26 +137,26 @@ const SocialMediaIcon = styled.div`
   /* Position of buttons */
 
   @media (max-width: 768px) {
-    left: 45%;
+    left: 54%;
     top: 50px;
   }
 
   &.social-linkedin {
-    left: 798px;
+    left: 820px;
     top: 160px;
 
     @media (max-width: 768px) {
-      left: 35%;
+      left: 44%;
       top: 50px;
     }
   }
 
   &.social-twitter {
-    left: 776px;
+    left: 786px;
     top: 190px;
 
     @media (max-width: 768px) {
-      left: 30%;
+      left: 38%;
       top: 70px;
     }
   }
@@ -169,7 +166,7 @@ export default function HeaderSection() {
   return (
     <HeaderBanner>
       <HeaderImage>
-        <img src={ProfilePic} alt="profile-pic" />
+        <img src={process.env.PUBLIC_URL + "/Me2.jpg"} alt="profile-pic" />
       </HeaderImage>
       <SocialMediaIcon>
         {/* using target=_blank without rel="noopener noreferrer" gives a security warning */}

@@ -22,9 +22,6 @@ import Burger from "./site-components/navbar/Burger";
 /* Header */
 import HeaderSection from "./site-components/header/HeaderSection";
 
-/* CP Logo */
-import CPLogoPic from "./images/CPMaskLogo2.png";
-
 function App() {
   const [open, setOpen] = useState(false);
 
@@ -40,7 +37,7 @@ function App() {
       <HeaderSection />
       <SectionHeader>About Me</SectionHeader>
       <SectionContent
-        padding="2rem 0.5rem 2rem 0.5rem"
+        padding="2rem 1rem 2rem 1rem"
         backgroundColor="white"
         textAlign="left"
       >
@@ -52,7 +49,7 @@ function App() {
           textAlign="center"
         >
           <img
-            src={CPLogoPic}
+            src={process.env.PUBLIC_URL + "/CPMaskLogo2.png"}
             alt="Calis Projects Logo"
             width="420px"
             height="260px"
