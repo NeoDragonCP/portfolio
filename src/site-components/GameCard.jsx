@@ -105,7 +105,7 @@ export default function GameCard(props) {
                 src={process.env.PUBLIC_URL + "/zenformsappicon.png"}
                 alt="app-icon"
               />
-              <ColumnContainer padding="0px 0px 0px 1rem">
+              <ColumnContainer padding="0px 1rem 0px 1rem">
                 <h2>ZENFORMS: Protectors</h2>
                 <p style={{ paddingBottom: "1rem" }}>
                   A 2D RPG for iOS, Android.
@@ -154,6 +154,15 @@ export default function GameCard(props) {
                 </p>
               </ColumnContainer>
             </div>
+            <p
+              style={{
+                color: "#26afed",
+                textAlign: "center",
+                fontSize: "0.8rem",
+              }}
+            >
+              <i>Scroll to view screenshots</i>
+            </p>
             <div className="screenshots">
               <img
                 src={process.env.PUBLIC_URL + "/zpscreen4.gif"}
