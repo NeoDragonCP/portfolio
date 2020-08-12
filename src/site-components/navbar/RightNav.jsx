@@ -1,29 +1,26 @@
 import React from "react";
 
 export default function RightNav(props) {
-  function clickedHome() {
-    console.log("Clicked Home");
-  }
-  function clickedWebProjects() {
-    console.log("Clicked WebProjects");
-  }
-  function clickedGames() {
-    console.log("Clicked Games");
-  }
-  function clickedSkills() {
-    console.log("Clicked Skills");
-  }
-  function clickedContact() {
-    console.log("Clicked Contact");
+  // Destructuring props - the passed refs for each section
+  const { homeRef, aboutMeRef, webProjectsRef, gamesRef, contactMeRef } = props;
+
+  // Jump to ref
+  function handleScrollToRef(ref) {
+    window.scrollTo(0, ref.current.offsetTop);
   }
 
   return (
     <ul id="nav">
-      <li onClick={() => clickedHome()}>Home</li>
-      <li onClick={() => clickedWebProjects()}>Web Projects</li>
-      <li onClick={() => clickedGames()}>Games</li>
-      <li onClick={() => clickedSkills()}>Skills</li>
-      <li id="contactme-button" onClick={() => clickedContact()}>
+      <li onClick={handleScrollToRef.bind(this, homeRef)}>Home</li>
+      <li onClick={handleScrollToRef.bind(this, aboutMeRef)}>About Me</li>
+      <li oonClick={handleScrollToRef.bind(this, webProjectsRef)}>
+        Web Projects
+      </li>
+      <li onClick={handleScrollToRef.bind(this, gamesRef)}>Games</li>
+      <li
+        id="contactme-button"
+        onClick={handleScrollToRef.bind(this, contactMeRef)}
+      >
         Contact Me
       </li>
     </ul>

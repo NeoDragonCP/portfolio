@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import "./App.css"; /* Basic app styling */
 
 import ReactPlayer from "react-player";
@@ -23,19 +23,33 @@ import Burger from "./site-components/navbar/Burger";
 import HeaderSection from "./site-components/header/HeaderSection";
 
 function App() {
+  // Nav bar state
   const [open, setOpen] = useState(false);
 
+  // Section Refs Navbar will scroll too
+  const homeRef = useRef(null);
+  const aboutMeRef = useRef(null);
+  const webProjectsRef = useRef(null);
+  const gamesRef = useRef(null);
+  const contactMeRef = useRef(null);
+
   return (
-    <div className="App">
+    <div className="App" ref={homeRef}>
       <Navbar open={open}>
         <div>
           {/*Dont need to pass props since RightNav is part of Navbar */}
-          <RightNav />
+          <RightNav
+            homeRef={homeRef}
+            aboutMeRef={aboutMeRef}
+            webProjectsRef={webProjectsRef}
+            gamesRef={gamesRef}
+            contactMeRef={contactMeRef}
+          />
           <Burger open={open} onClick={() => setOpen(!open)} />
         </div>
       </Navbar>
       <HeaderSection />
-      <SectionHeader>About Me</SectionHeader>
+      <SectionHeader ref={aboutMeRef}>About Me</SectionHeader>
       <SectionContent
         padding="2rem 1rem 2rem 1rem"
         backgroundColor="white"
@@ -92,7 +106,9 @@ function App() {
           </p>
         </ColumnContainer>
       </SectionContent>
-      <SectionHeader invert>Web Projects</SectionHeader>
+      <SectionHeader invert ref={webProjectsRef}>
+        Web Projects
+      </SectionHeader>
       <SectionContent padding="5rem 0 5rem 0" backgroundColor="#E3F4FF">
         <RowContainer
           padding="0.5rem 2rem 0.5rem 2rem"
@@ -132,7 +148,7 @@ function App() {
           Check Out My Github For More
         </a>
       </SectionContent>
-      <SectionHeader>Games</SectionHeader>
+      <SectionHeader ref={gamesRef}>Games</SectionHeader>
       <SectionContent>
         <ColumnContainer
           width="100%"
@@ -147,7 +163,11 @@ function App() {
           <GameCard />
         </ColumnContainer>
       </SectionContent>
-      <SectionContent backgroundColor="#016e9f" minHeight="300px">
+      <SectionContent
+        ref={contactMeRef}
+        backgroundColor="#016e9f"
+        minHeight="300px"
+      >
         <ColumnContainer
           width="400px"
           height="300px"
@@ -156,6 +176,11 @@ function App() {
           fontColor="white"
         >
           <h3>Contact Me</h3>
+          <p>
+            Section still under construction. Email me instead:
+            mcvickerstephen@gmail.com
+          </p>
+          <br />
           <input type="text" placeholder="Full Name" />
           <input type="text" placeholder="Email" />
           <input type="text" placeholder="Message" />
