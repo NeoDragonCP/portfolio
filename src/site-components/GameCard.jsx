@@ -7,7 +7,6 @@ import RowContainer from "../styled-components/RowContainer";
 
 const BaseCard = styled.div`
   width: 90%;
-  height: 540px;
   background-color: white;
 
   border-radius: 6px;
@@ -17,6 +16,7 @@ const BaseCard = styled.div`
   flex-direction: row;
 
   @media (max-width: 768px) {
+    width: 99%;
     flex-direction: column;
   }
 `;
@@ -29,24 +29,63 @@ const GameDetailsSection = styled.div`
   padding: 2rem;
 
   .topdetails {
+    width: 100%;
     padding-left: 2rem;
     color: #4b4b4b;
+
+    display: flex;
+    flex-direction: row;
+
+    align-items: center;
+    overflow-wrap: break-word;
+
+    a {
+      padding: 0 1rem 0 0;
+      margin: 0;
+      bottom: 0;
+    }
   }
   .logo {
     width: 100px;
     height: 100px;
   }
 
+  .screenshots {
+    display: flex;
+    flex: row;
+
+    overflow-x: auto;
+
+    img {
+      padding-right: 2rem;
+      padding-bottom: 1rem;
+      width: 480px;
+      height: 320px;
+    }
+  }
+
   @media (max-width: 768px) {
     width: 100%;
-    height: 70%;
+    padding: 1rem 0 1rem 0;
+
+    .topdetails {
+      padding: 0;
+      flex-direction: column;
+      text-align: center;
+    }
   }
 `;
 
 const FactSection = styled.div`
   width: 30%;
-  height: 100%;
-  background-color: green;
+  background-color: #016e9f;
+  color: white;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
 
   @media (max-width: 768px) {
     width: 100%;
@@ -60,7 +99,7 @@ export default function GameCard(props) {
       <BaseCard>
         <GameDetailsSection>
           <ColumnContainer width="100%">
-            <RowContainer className="topdetails" width="100%">
+            <div className="topdetails">
               <img
                 className="logo"
                 src={process.env.PUBLIC_URL + "/zenformsappicon.png"}
@@ -68,17 +107,98 @@ export default function GameCard(props) {
               />
               <ColumnContainer padding="0px 0px 0px 1rem">
                 <h2>ZENFORMS: Protectors</h2>
-                <p>
+                <p style={{ paddingBottom: "1rem" }}>
                   A 2D RPG for iOS, Android.
                   <br /> Capture monsters, battle others, and go on an amazing
                   adventure.
+                  <br />
+                  A great single player story to experience and robust online
+                  features, <br />
+                  known as the CP Garden, allowing you to interact with a huge
+                  community of players
+                  <br /> and participate in online trades, battles, and events.
+                </p>
+                <p>
+                  <a
+                    href="https://twitter.com/zenforms"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Twitter
+                  </a>
+
+                  <a
+                    href="https://www.youtube.com/user/CalisProjectsOffical"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Youtube
+                  </a>
+                  <a
+                    href="https://www.facebook.com/zenforms/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Facebook
+                  </a>
+                  <a
+                    href="https://zenforms.fandom.com/wiki/ZENFORMS:_Protectors_Wiki"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Wiki
+                  </a>
+                </p>
+                <p style={{ color: "#FF7700", padding: "1rem 0 1rem 0" }}>
+                  Note: Game was removed from sale in May 2020.
                 </p>
               </ColumnContainer>
-            </RowContainer>
+            </div>
+            <div className="screenshots">
+              <img
+                src={process.env.PUBLIC_URL + "/zpscreen4.gif"}
+                alt="volcano-battle"
+              />
+
+              <img
+                src={process.env.PUBLIC_URL + "/zpscreen2.png"}
+                alt="talking-to-abel"
+              />
+              <img
+                src={process.env.PUBLIC_URL + "/zpscreen3.png"}
+                alt="picking-your-starter"
+              />
+              <img src={process.env.PUBLIC_URL + "/zpscreen1.png"} alt="2-v1" />
+              <img
+                src={process.env.PUBLIC_URL + "/zpscreen5.png"}
+                alt="online-mode"
+              />
+            </div>
           </ColumnContainer>
         </GameDetailsSection>
 
-        <FactSection />
+        <FactSection>
+          <h3 style={{ color: "#BBE1FA", padding: "0.6rem 0 0.2rem 0" }}>
+            Facts
+          </h3>
+          <p>
+            First release: September 2012
+            <br />
+            Updates and support: For 4 years+
+          </p>
+          <h3 style={{ color: "#BBE1FA", padding: "0.6rem 0 0.2rem 0" }}>
+            Tech Used
+          </h3>
+          <p>
+            Objective-C
+            <br />
+            PHP + MySQL for online backend service
+            <br />
+            Xcode
+            <br />
+            Photoshop
+          </p>
+        </FactSection>
       </BaseCard>
     </React.Fragment>
   );

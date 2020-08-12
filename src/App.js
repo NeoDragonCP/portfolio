@@ -93,7 +93,7 @@ function App() {
         </ColumnContainer>
       </SectionContent>
       <SectionHeader invert>Web Projects</SectionHeader>
-      <SectionContent padding="5rem 0 5rem 0" backgroundColor="#EAF4FA">
+      <SectionContent padding="5rem 0 5rem 0" backgroundColor="#E3F4FF">
         <RowContainer
           padding="0.5rem 2rem 0.5rem 2rem"
           justifyContent="space-between"
