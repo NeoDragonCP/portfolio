@@ -9,6 +9,8 @@ const BaseCard = styled.div`
   width: 90%;
   background-color: white;
 
+  margin: 1rem 0 3rem 0;
+
   border-radius: 6px;
   box-shadow: 0px 4px 4px rgba(48, 48, 48, 0.2);
 
@@ -48,6 +50,7 @@ const GameDetailsSection = styled.div`
   .logo {
     width: 100px;
     height: 100px;
+    border-radius: 10px;
   }
 
   .screenshots {
@@ -64,6 +67,11 @@ const GameDetailsSection = styled.div`
     }
   }
 
+  hr.solid {
+    border-top: 2px solid #016e9f;
+    margin-bottom: 1rem;
+  }
+
   @media (max-width: 768px) {
     width: 100%;
     padding: 1rem 0 1rem 0;
@@ -78,14 +86,15 @@ const GameDetailsSection = styled.div`
 
 const FactSection = styled.div`
   width: 30%;
+  padding: 2rem;
   background-color: #016e9f;
   color: white;
 
   display: flex;
   flex-direction: column;
 
-  align-items: center;
   justify-content: center;
+  text-align: left;
 
   @media (max-width: 768px) {
     width: 100%;
@@ -97,10 +106,14 @@ export default function GameCard(props) {
   const {
     appIcon,
     title,
+    description,
     facebookLink,
     twitterLink,
     wikiLink,
     youtubeLink,
+    facts,
+    tech,
+    screenshots,
   } = props;
 
   return (
@@ -114,83 +127,84 @@ export default function GameCard(props) {
                 src={process.env.PUBLIC_URL + appIcon}
                 alt="app-icon"
               />
-              <ColumnContainer padding="0px 1rem 0px 1rem">
+              <ColumnContainer padding="0px 1.2rem 0px 1.2rem">
                 <h2>{title}</h2>
-                <p style={{ paddingBottom: "1rem" }}>
-                  A 2D RPG for iOS, Android.
-                  <br /> Capture monsters, battle others, and go on an amazing
-                  adventure.
-                  <br />
-                  A great single player story to experience and robust online
-                  features, <br />
-                  known as the CP Garden, allowing you to interact with a huge
-                  community of players
-                  <br /> and participate in online trades, battles, and events.
+                <hr className="solid"></hr>
+                <p style={{ paddingTop: "1rem", paddingBottom: "1rem" }}>
+                  {description}
                 </p>
-                <p>
-                  <a
-                    href={twitterLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Twitter
-                  </a>
 
-                  <a
-                    href={youtubeLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Youtube
-                  </a>
-                  <a
-                    href={facebookLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Facebook
-                  </a>
-                  <a href={wikiLink} target="_blank" rel="noopener noreferrer">
-                    Wiki
-                  </a>
+                <p>
+                  {/* Conditionally render out links if they were passed */}
+                  {twitterLink !== undefined && (
+                    <a
+                      href={twitterLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Twitter
+                    </a>
+                  )}
+
+                  {youtubeLink !== undefined && (
+                    <a
+                      href={youtubeLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Youtube
+                    </a>
+                  )}
+
+                  {facebookLink !== undefined && (
+                    <a
+                      href={facebookLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Facebook
+                    </a>
+                  )}
+
+                  {wikiLink !== undefined && (
+                    <a
+                      href={wikiLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Wiki
+                    </a>
+                  )}
                 </p>
-                <p style={{ color: "#FF7700", padding: "1rem 0 1rem 0" }}>
+                <p style={{ color: "#FF7700", padding: "3rem 0 2rem 0" }}>
                   Note: Game was removed from sale in May 2020.
                 </p>
               </ColumnContainer>
             </div>
-            <p
-              style={{
-                color: "#26afed",
-                textAlign: "center",
-                fontSize: "0.8rem",
-              }}
-            >
-              <i>Scroll to view screenshots</i>
-            </p>
-            <div className="screenshots">
-              <img
-                src={process.env.PUBLIC_URL + "/zpscreen4.gif"}
-                alt="volcano-battle"
-              />
 
-              <img
-                src={process.env.PUBLIC_URL + "/zpscreen2.png"}
-                alt="talking-to-abel"
-              />
-              <img
-                src={process.env.PUBLIC_URL + "/zpscreen3.png"}
-                alt="picking-your-starter"
-              />
-              <img
-                src={process.env.PUBLIC_URL + "/zpscreen1.png"}
-                alt="2-v-1"
-              />
-              <img
-                src={process.env.PUBLIC_URL + "/zpscreen5.png"}
-                alt="online-mode"
-              />
-            </div>
+            {screenshots !== undefined && (
+              <React.Fragment>
+                <p
+                  style={{
+                    color: "#26afed",
+                    textAlign: "center",
+                    fontSize: "0.8rem",
+                  }}
+                >
+                  <i>Scroll to view screenshots</i>
+                </p>
+                <div className="screenshots">
+                  {screenshots !== undefined
+                    ? screenshots.map((shot) => (
+                        <img
+                          src={process.env.PUBLIC_URL + shot.url}
+                          alt={shot.alt}
+                        />
+                      ))
+                    : ""}
+                </div>
+              </React.Fragment>
+            )}
           </ColumnContainer>
         </GameDetailsSection>
 
@@ -198,23 +212,13 @@ export default function GameCard(props) {
           <h3 style={{ color: "#BBE1FA", padding: "0.6rem 0 0.2rem 0" }}>
             Facts
           </h3>
-          <p>
-            First release: September 2012
-            <br />
-            Updates and support: For 4 years+
-          </p>
-          <h3 style={{ color: "#BBE1FA", padding: "0.6rem 0 0.2rem 0" }}>
+          <ul>
+            {facts !== undefined ? facts.map((fact) => <li>{fact}</li>) : ""}
+          </ul>
+          <h3 style={{ color: "#BBE1FA", padding: "4.6rem 0 0.2rem 0" }}>
             Tech Used
           </h3>
-          <p>
-            Objective-C
-            <br />
-            PHP + MySQL for online backend service
-            <br />
-            Xcode
-            <br />
-            Photoshop
-          </p>
+          <ul>{tech !== undefined ? tech.map((t) => <li>{t}</li>) : ""}</ul>
         </FactSection>
       </BaseCard>
     </React.Fragment>

@@ -24,8 +24,8 @@ const RowContainer = styled.div`
   align-items: ${(props) => props.alignItems || ""};
   justify-content: ${(props) => props.justifyContent || ""};
 
-  overflow-x: auto;
-  overflow-y: hidden;
+  overflow-x: ${(props) => props.overflowX || "auto"};
+  overflow-y: ${(props) => props.overflowY || "hidden"};
 
   /* All children keep their size */
   > * {

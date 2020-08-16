@@ -23,8 +23,8 @@ const ColumnContainer = styled.div`
 
   text-align: ${(props) => props.textAlign || ""};
 
-  overflow-x: hidden;
-  overflow-y: auto;
+  overflow-x: ${(props) => props.overflowX || "hidden"};
+  overflow-y: ${(props) => props.overflowY || "auto"};
 
   > div {
     flex: 0 0 auto;
