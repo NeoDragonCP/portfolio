@@ -1,9 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import Card from "../styled-components/Card";
 import ColumnContainer from "../styled-components/ColumnContrainer";
-import RowContainer from "../styled-components/RowContainer";
 
 const BaseCard = styled.div`
   width: 90%;

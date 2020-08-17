@@ -13,7 +13,6 @@ import SectionContent from "./site-components/SectionContent.jsx";
 import ProjectCard from "./site-components/ProjectCard.jsx";
 import GameCard from "./site-components/GameCard.jsx";
 
-import Button from "./styled-components/Button";
 import ColumnContainer from "./styled-components/ColumnContrainer.jsx";
 import RowContainer from "./styled-components/RowContainer.jsx";
 
@@ -24,6 +23,8 @@ import Burger from "./site-components/navbar/Burger";
 
 /* Header */
 import HeaderSection from "./site-components/header/HeaderSection";
+
+import ContactMe from "./site-components/ContactMe.jsx";
 
 const AboutMeSection = styled.div`
   width: 100%;
@@ -276,32 +277,19 @@ Collect Stars and spend them on boosts and shields to help you go further."
         ref={contactMeRef}
         backgroundColor="#016e9f"
         minHeight="300px"
+        color="#E3F4FF"
+        padding="2rem 1rem 1rem 1rem"
       >
-        <ColumnContainer
-          width="400px"
-          height="300px"
-          justifyContent="space-evenly"
-          padding="1rem"
-          fontColor="white"
-        >
-          <h3>Contact Me</h3>
-          <p>
-            Section still under construction. Email me instead:
-            mcvickerstephen@gmail.com
-          </p>
-          <br />
-          <input type="text" placeholder="Full Name" />
-          <input type="text" placeholder="Email" />
-          <input type="text" placeholder="Message" />
-        </ColumnContainer>
-        <Button backgroundColor="#e41b4d">Contact Me</Button>
+        <h2>Contact Me</h2>
+        <ContactMe />
 
+        {/* Footer */}
         <ColumnContainer
           width="100%"
           justifyContent="center"
           alignItems="center"
           fontColor="white"
-          padding="2rem"
+          padding="6rem 1rem 0rem 1rem"
         >
           <p>
             Handcrafted by me, Stephen McVicker.
@@ -311,7 +299,7 @@ Collect Stars and spend them on boosts and shields to help you go further."
             <span
               style={{
                 textDecoration: "underline",
-                color: "#e41b4d",
+                color: "#FC1E56",
                 cursor: "pointer",
               }}
             >

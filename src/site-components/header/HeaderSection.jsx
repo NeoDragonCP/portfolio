@@ -197,7 +197,7 @@ export default function HeaderSection() {
         </a>
       </SocialMediaIcon>
       <HeaderFlavorText>
-        <span>Stephen McVicker.</span>
+        <span>Stephen McVicker</span>
         <p>
           UI Developer
           <br />

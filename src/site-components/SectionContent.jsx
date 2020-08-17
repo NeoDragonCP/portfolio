@@ -7,6 +7,8 @@ const SectionContent = styled.div`
   padding: ${(props) => props.padding || ""};
   background: ${(props) => props.backgroundColor || ""};
 
+  color: ${(props) => props.color};
+
   text-align: ${(props) => props.textAlign || "center"};
 
   display: flex;
