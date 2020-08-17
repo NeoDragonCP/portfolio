@@ -8,16 +8,18 @@ const HeaderBanner = styled.div`
   left: 0px;
   top: 0px;
 
-  background: #016e9f; /* fallback for old browsers */
+  background: ${(props) =>
+    props.theme.headerGradientLight ||
+    "#26afed"}; /* fallback for old browsers */
   background: -webkit-linear-gradient(
     to right,
-    #26afed,
-    #016e9f
+    ${(props) => props.theme.headerGradientLight},
+    ${(props) => props.theme.headerGradientDark}
   ); /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(
     to right,
-    #26afed,
-    #016e9f
+    ${(props) => props.theme.headerGradientLight},
+    ${(props) => props.theme.headerGradientDark}
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
   @media (max-width: 768px) {

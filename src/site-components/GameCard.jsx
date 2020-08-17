@@ -85,7 +85,21 @@ const GameDetailsSection = styled.div`
 const FactSection = styled.div`
   width: 30%;
   padding: 2rem;
-  background-color: #016e9f;
+
+  background: ${(props) =>
+    props.theme.headerGradientLight ||
+    "#26afed"}; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    ${(props) => props.theme.headerGradientLight},
+    ${(props) => props.theme.headerGradientDark}
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    ${(props) => props.theme.headerGradientLight},
+    ${(props) => props.theme.headerGradientDark}
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
   color: white;
 
   display: flex;
@@ -195,6 +209,7 @@ export default function GameCard(props) {
                   {screenshots !== undefined
                     ? screenshots.map((shot) => (
                         <img
+                          key={shot.alt}
                           src={process.env.PUBLIC_URL + shot.url}
                           alt={shot.alt}
                         />
@@ -211,12 +226,16 @@ export default function GameCard(props) {
             Facts
           </h3>
           <ul>
-            {facts !== undefined ? facts.map((fact) => <li>{fact}</li>) : ""}
+            {facts !== undefined
+              ? facts.map((fact) => <li key={fact}>{fact}</li>)
+              : ""}
           </ul>
           <h3 style={{ color: "#BBE1FA", padding: "4.6rem 0 0.2rem 0" }}>
             Tech Used
           </h3>
-          <ul>{tech !== undefined ? tech.map((t) => <li>{t}</li>) : ""}</ul>
+          <ul>
+            {tech !== undefined ? tech.map((t) => <li key={t}>{t}</li>) : ""}
+          </ul>
         </FactSection>
       </BaseCard>
     </React.Fragment>
