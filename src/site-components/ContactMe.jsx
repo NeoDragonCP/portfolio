@@ -27,11 +27,19 @@ const Base = styled.div`
 
   form {
     width: 50%;
-    padding: 1rem;
+    padding: 2rem;
     background-color: #88a2ac;
+    border-radius: 16px;
+    box-shadow: 0px 4px 4px rgba(48, 48, 48, 0.2);
+
+    text-align: left;
 
     @media (max-width: 768px) {
       width: 98%;
+    }
+
+    > h3 {
+      color: ${(props) => props.colorRed || "#FC1E56"};
     }
   }
 `;
@@ -89,6 +97,7 @@ export default function ContactMe() {
       </p>
 
       <form>
+        <h3>Send Message</h3>
         <InputBox colorBlue={colorBlue} colorRed={colorRed}>
           <input type="text" required="required" />
           <span>Full Name</span>
@@ -98,7 +107,7 @@ export default function ContactMe() {
           <span>Email</span>
         </InputBox>
         <InputBox colorBlue={colorBlue} colorRed={colorRed}>
-          <textarea required="required" />
+          <textarea required="required" rows="5" />
           <span>Type your message....</span>
         </InputBox>
         <Button backgroundColor={colorRed}>Contact Me</Button>
