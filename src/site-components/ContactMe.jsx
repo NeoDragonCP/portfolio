@@ -1,8 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-
-import ColumnContainer from "../styled-components/ColumnContrainer";
-import RowContainer from "../styled-components/RowContainer";
 import Button from "../styled-components/Button";
 
 const Base = styled.div`
@@ -29,7 +26,7 @@ const Base = styled.div`
     width: 50%;
     padding: 2rem;
     margin: 2rem 0 2rem 0;
-    background-color: #88a2ac;
+    background-color: ${(props) => props.theme.cardBG || "#88a2ac"};
     border-radius: 16px;
     box-shadow: 0px 4px 4px rgba(48, 48, 48, 0.2);
 
@@ -79,7 +76,7 @@ const InputBox = styled.div`
   input:valid ~ span,
   textarea:focus ~ span,
   textarea:valid ~ span {
-    color: white;
+    color: ${(props) => props.theme.fontPrimary || "black"};
     font-size: 0.8rem;
     transform: translateY(-2rem);
   }

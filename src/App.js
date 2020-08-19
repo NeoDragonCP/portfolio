@@ -5,7 +5,6 @@ import styled, { ThemeProvider } from "styled-components";
 
 /* Youtube Video Player */
 import ReactPlayer from "react-player";
-import Iframe from "react-iframe";
 
 /* My styled Elements */
 import SectionHeader from "./site-components/SectionHeader.jsx";

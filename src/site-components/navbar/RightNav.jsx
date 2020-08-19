@@ -1,6 +1,4 @@
-import React, { useState } from "react";
-
-import ToggleSwitch from "../ToggleSwitch";
+import React from "react";
 
 export default function RightNav(props) {
   // Destructuring props - the passed refs for each section
