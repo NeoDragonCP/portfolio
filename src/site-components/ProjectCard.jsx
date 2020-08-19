@@ -67,11 +67,6 @@ export default function ProjectCard(props) {
   // Destructuring props
   const { title, description, tags, imageURL } = props;
 
-  /*
-  console.log("../images/PasswordGeneratorDesktop.png");
-  console.log(imageURL);
-  */
-
   // * * * * *
   // Button presses
   function handleDemoClick() {
@@ -102,7 +97,13 @@ export default function ProjectCard(props) {
 
   return (
     <React.Fragment>
-      <Card width="320px" height="520px" fontColor="#016e9f" padding="0 0 0 0">
+      <Card
+        width="320px"
+        height="520px"
+        fontColor="#016e9f"
+        padding="0 0 0 0"
+        backgroundColor={props.theme.cardBG}
+      >
         <ProjectScreenshot>
           <img src={process.env.PUBLIC_URL + imageURL} alt="screenshot" />
         </ProjectScreenshot>

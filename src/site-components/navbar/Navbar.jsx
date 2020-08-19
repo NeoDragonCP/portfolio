@@ -5,19 +5,7 @@ const Navbar = styled.div`
   height: 60px;
   z-index: 1000; /*Layered on top of everything */
 
-  background: ${(props) =>
-    props.theme.headerGradientLight ||
-    "#26afed"}; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to right,
-    ${(props) => props.theme.headerGradientLight},
-    ${(props) => props.theme.headerGradientDark}
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to right,
-    ${(props) => props.theme.headerGradientLight},
-    ${(props) => props.theme.headerGradientDark}
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: ${(props) => props.theme.gradientHeader || "#26afed"};
 
   padding-left: 0.5rem;
   padding-right: 0.5rem;
@@ -86,10 +74,20 @@ const Navbar = styled.div`
       }
     }
 
+    #toggle {
+      padding-right: 2rem;
+    }
+
+    #toggle-emoji {
+      position: relative;
+      font-size: 1.3rem;
+    }
+
+    /* Mobile Scaling */
     @media (max-width: 768px) {
       flex-flow: column nowrap;
 
-      background: ${(props) => props.theme.headerGradientDark || "#26afed"};
+      background: ${(props) => props.theme.gradientHeader || "#26afed"};
 
       position: fixed;
       top: 0;

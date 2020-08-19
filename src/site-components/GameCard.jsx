@@ -5,7 +5,7 @@ import ColumnContainer from "../styled-components/ColumnContrainer";
 
 const BaseCard = styled.div`
   width: 90%;
-  background-color: white;
+  background-color: ${(props) => props.theme.gameCardBG || "white"};
 
   margin: 1rem 0 3rem 0;
 
@@ -31,13 +31,17 @@ const GameDetailsSection = styled.div`
   .topdetails {
     width: 100%;
     padding-left: 2rem;
-    color: #4b4b4b;
+    color: ${(props) => props.theme.fontPrimary || "#4b4b4b"};
 
     display: flex;
     flex-direction: row;
 
     align-items: center;
     overflow-wrap: break-word;
+
+    h2 {
+      color: ${(props) => props.theme.fontPrimary || "white"};
+    }
 
     a {
       padding: 0 1rem 0 0;
@@ -86,21 +90,9 @@ const FactSection = styled.div`
   width: 30%;
   padding: 2rem;
 
-  background: ${(props) =>
-    props.theme.headerGradientLight ||
-    "#26afed"}; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to right,
-    ${(props) => props.theme.headerGradientLight},
-    ${(props) => props.theme.headerGradientDark}
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to right,
-    ${(props) => props.theme.headerGradientLight},
-    ${(props) => props.theme.headerGradientDark}
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: ${(props) => props.theme.gradient1 || "#26afed"};
 
-  color: white;
+  color: ${(props) => props.theme.fontInvert || "white"};
 
   display: flex;
   flex-direction: column;

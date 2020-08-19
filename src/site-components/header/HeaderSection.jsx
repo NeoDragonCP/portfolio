@@ -8,19 +8,7 @@ const HeaderBanner = styled.div`
   left: 0px;
   top: 0px;
 
-  background: ${(props) =>
-    props.theme.headerGradientLight ||
-    "#26afed"}; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to right,
-    ${(props) => props.theme.headerGradientLight},
-    ${(props) => props.theme.headerGradientDark}
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to right,
-    ${(props) => props.theme.headerGradientLight},
-    ${(props) => props.theme.headerGradientDark}
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: ${(props) => props.theme.gradientHeader || "#26afed"};
 
   @media (max-width: 768px) {
     overflow-x: hidden;
@@ -108,8 +96,8 @@ const SocialMediaIcon = styled.div`
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  background-color: #42c3ff;
-  color: #bbe1fa;
+  background-color: ${(props) => props.theme.socialIconBG || "#26afed"};
+  color: ${(props) => props.theme.socialIconColor || "#bbe1fa"};
   font-size: 40px;
 
   z-index: 10;

@@ -5,6 +5,7 @@ import styled, { ThemeProvider } from "styled-components";
 
 /* Youtube Video Player */
 import ReactPlayer from "react-player";
+import Iframe from "react-iframe";
 
 /* My styled Elements */
 import SectionHeader from "./site-components/SectionHeader.jsx";
@@ -60,34 +61,73 @@ const themeColors = {
 
   white: "#FFFFFF",
   gray: "#F2F2F2",
+  grayDark: "#BBBBBB",
   black: "#4B4B4B",
 };
 
 const themeLight = {
-  blueSuperLight: "#E3F4FF",
-  blueLight: "#BBE1FA",
-  blueMedium: "#26AFED",
-  blueDark: "#016E9F",
-  blueDark2: "#002837",
-  blueDark3: "#01161E",
+  gradient1: `linear-gradient(
+    to right,
+    ${themeColors.blueMedium},
+    ${themeColors.blueDark});`,
+  gradient2: `linear-gradient(
+    to right,
+    ${themeColors.blueDark},
+    ${themeColors.blueDark2});`,
 
-  redLight: "#E41B4D",
-  redDark: "#B83B5E",
+  gradientHeader: `linear-gradient(
+    to right,
+    ${themeColors.blueMedium},
+    ${themeColors.blueDark});`,
 
-  purple: "#6A2C70",
-  orange: "#FF7700",
+  bgMain: `${themeColors.gray}`,
+  bgBlueLight: `${themeColors.blueLight}`,
+  cardBG: `${themeColors.white}`,
+  gameCardBG: `${themeColors.white}`,
 
-  white: "#FFFFFF",
-  gray: "#F2F2F2",
-  black: "#4B4B4B",
+  socialIconBG: `${themeColors.blueLight}`,
+  socialIconColor: `${themeColors.blueMedium}`,
 
-  bgLight: "white",
-  bgMedium: "#F2F2F2",
+  fontPrimary: `${themeColors.black}`,
+  fontSecondary: `${themeColors.grayDark}`,
+  fontInvert: `${themeColors.white}`,
 
-  fontPrimary: "#4B4B4B",
+  linkColor: `${themeColors.redLight}`,
 
-  headerGradientLight: "#26AFED",
-  headerGradientDark: "#016E9F",
+  baseColors: themeColors,
+};
+
+const themeDark = {
+  gradient1: `linear-gradient(
+    to right,
+    ${themeColors.blueDark},
+    ${themeColors.blueDark2});`,
+
+  gradient2: `linear-gradient(
+    to right,
+    ${themeColors.blueDark2},
+    ${themeColors.blueDark3});`,
+
+  gradientHeader: `linear-gradient(
+    to right,
+    ${themeColors.blueDark2},
+    ${themeColors.blueDark3});`,
+
+  bgMain: `${themeColors.blueDark3}`,
+  bgBlueLight: `${themeColors.blueDark2}`,
+  cardBG: `${themeColors.blueDark3}`,
+  gameCardBG: `${themeColors.blueDark2}`,
+
+  socialIconBG: `${themeColors.blueDark2}`,
+  socialIconColor: `${themeColors.blueDark}`,
+
+  fontPrimary: `${themeColors.gray}`,
+  fontSecondary: `${themeColors.grayDark}`,
+  fontInvert: `${themeColors.white}`,
+
+  linkColor: `${themeColors.redLight}`,
+
+  baseColors: themeColors,
 };
 
 // * * * * *
@@ -103,7 +143,8 @@ function App() {
   const gamesRef = useRef(null);
   const contactMeRef = useRef(null);
 
-  const currentTheme = themeLight;
+  // Theme local
+  const [currentTheme, setTheme] = useState(themeLight);
 
   return (
     <ThemeProvider theme={currentTheme}>
@@ -111,6 +152,7 @@ function App() {
         <Navbar open={open}>
           <div>
             <RightNav
+              theme={currentTheme}
               open={open}
               homeRef={homeRef}
               aboutMeRef={aboutMeRef}
@@ -118,6 +160,13 @@ function App() {
               gamesRef={gamesRef}
               contactMeRef={contactMeRef}
               closeNav={() => setOpen(false)}
+              switchTheme={() => {
+                if (currentTheme === themeLight) {
+                  setTheme(themeDark);
+                } else {
+                  setTheme(themeLight);
+                }
+              }}
             />
             <Burger open={open} onClick={() => setOpen(!open)} />
           </div>
@@ -125,14 +174,14 @@ function App() {
         <HeaderSection />
         <SectionHeader
           ref={aboutMeRef}
-          backgroundColor={currentTheme.blueLight}
-          color={currentTheme.blueDark}
+          backgroundColor={currentTheme.bgBlueLight}
+          color={currentTheme.baseColors.blueDark}
         >
           About Me
         </SectionHeader>
         <SectionContent
           padding="2rem 1rem 2rem 1rem"
-          backgroundColor={currentTheme.bgMedium}
+          backgroundColor={currentTheme.bgMain}
           color={currentTheme.fontPrimary}
           textAlign="left"
         >
@@ -159,7 +208,12 @@ function App() {
                 <span>Born and raised in Dublin, Ireland.</span>
                 <br />
                 <br />
-                <span style={{ fontWeight: "bold", color: "#4B4B4B" }}>
+                <span
+                  style={{
+                    fontWeight: "bold",
+                    color: currentTheme.fontSecondary,
+                  }}
+                >
                   Calis Projects (logo pictured)
                 </span>
                 <br />
@@ -172,7 +226,12 @@ function App() {
                 world.
                 <br />
                 <br />
-                <span style={{ fontWeight: "bold", color: "#4B4B4B" }}>
+                <span
+                  style={{
+                    fontWeight: "bold",
+                    color: currentTheme.fontSecondary,
+                  }}
+                >
                   Actively looking for work in Front End development
                 </span>
                 <br />
@@ -213,12 +272,16 @@ function App() {
             </ColumnContainer>
           </AboutMeSection>
         </SectionContent>
-        <SectionHeader invert ref={webProjectsRef}>
+        <SectionHeader
+          backgroundColor={currentTheme.bgBlueLight}
+          color={currentTheme.fontPrimary}
+          ref={webProjectsRef}
+        >
           Web Projects
         </SectionHeader>
         <SectionContent
           padding="5rem 0 5rem 0"
-          backgroundColor={currentTheme.blueSuperLight}
+          backgroundColor={currentTheme.bgBlueLight}
         >
           <RowContainer
             padding="0.5rem 2rem 0.5rem 2rem"
@@ -232,6 +295,7 @@ function App() {
               imageURL="/PasswordGeneratorDesktop.png"
               demoURL="https://neodragoncp.github.io/password-generator/"
               githubURL="https://github.com/NeoDragonCP/password-generator"
+              theme={currentTheme}
             />
             <ProjectCard
               title="Currency Convertor"
@@ -240,6 +304,7 @@ function App() {
               imageURL="/CurrencyConverterScreenshot.png"
               demoURL="https://neodragoncp.github.io/currency-converter/"
               githubURL="https://github.com/NeoDragonCP/currency-converter"
+              theme={currentTheme}
             />
             <ProjectCard
               title="This website."
@@ -248,6 +313,7 @@ function App() {
               imageURL="/WebsiteCodeScreenshot.png"
               demoURL="https://neodragoncp.github.io/portfolio/index.html"
               githubURL="https://github.com/NeoDragonCP/portfolio"
+              theme={currentTheme}
             />
           </RowContainer>
           <a
@@ -258,8 +324,14 @@ function App() {
             Check Out My Github For More
           </a>
         </SectionContent>
-        <SectionHeader ref={gamesRef}>Games</SectionHeader>
-        <SectionContent>
+        <SectionHeader
+          backgroundColor={currentTheme.baseColors.blueDark}
+          color={currentTheme.bgBlueLight}
+          ref={gamesRef}
+        >
+          Games
+        </SectionHeader>
+        <SectionContent backgroundColor={currentTheme.bgMain}>
           <ColumnContainer
             width="100%"
             padding="2rem"
@@ -274,6 +346,7 @@ function App() {
             <br />
             <br />
             <GameCard
+              theme={currentTheme}
               appIcon="/zenformsappicon.png"
               title="ZENFORMS: Protectors"
               description="A 2D RPG for iOS, Android.
@@ -339,21 +412,22 @@ Collect Stars and spend them on boosts and shields to help you go further."
         </SectionContent>
         <SectionContent
           ref={contactMeRef}
-          backgroundColor="#016e9f"
+          backgroundColor={currentTheme.gradient1}
           minHeight="300px"
-          color="#E3F4FF"
+          color={currentTheme.fontInvert}
           padding="2rem 1rem 1rem 1rem"
         >
           <h2>Contact Me</h2>
-          <ContactMe />
-
+          <ContactMe theme={currentTheme} />
+        </SectionContent>
+        <SectionContent backgroundColor={currentTheme.gradient2}>
           {/* Footer */}
           <ColumnContainer
             width="100%"
+            padding="1rem"
             justifyContent="center"
             alignItems="center"
             fontColor="white"
-            padding="6rem 1rem 0rem 1rem"
           >
             <p>
               Handcrafted by me, Stephen McVicker.
@@ -363,7 +437,7 @@ Collect Stars and spend them on boosts and shields to help you go further."
               <span
                 style={{
                   textDecoration: "underline",
-                  color: "#FC1E56",
+                  color: `${currentTheme.linkColor}`,
                   cursor: "pointer",
                 }}
               >

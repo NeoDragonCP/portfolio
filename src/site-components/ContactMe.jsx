@@ -28,6 +28,7 @@ const Base = styled.div`
   form {
     width: 50%;
     padding: 2rem;
+    margin: 2rem 0 2rem 0;
     background-color: #88a2ac;
     border-radius: 16px;
     box-shadow: 0px 4px 4px rgba(48, 48, 48, 0.2);
@@ -84,13 +85,13 @@ const InputBox = styled.div`
   }
 `;
 
-export default function ContactMe() {
+export default function ContactMe(props) {
   const colorRed = "#FC1E56";
   const colorBlue = "#016e9f";
 
   return (
     <Base>
-      <p style={{ color: "#bbe1fa", marginBottom: "1rem" }}>
+      <p style={{ color: props.theme.fontInvert, marginBottom: "1rem" }}>
         I'm currently open to job offers so get in touch!
         <br />
         Email: mcvickerstephen@gmail.com
