@@ -13,8 +13,9 @@ I used styled-components to style my own custom, re-usable components throughout
 Components such as the cards for displaying projects are fully dynamic. Controlled by the props passed to them. The component itself handles output and mapping through arrays as needed.
 Some components are only rendered on desktop, such as the "scroll to top" (the nav handles the jump-scrolling on mobile).
 Speaking of which, I did use some hooks such as useRef (for the scrolling to elements) and useState.
+Framer Motion is used for animating of some elements such as the "Header Text" (my name at the top of the page).
 
-Dark mode included.
+Dark mode included. Theme choice is also saved to local storage and on page reload your choice will be loaded back up.
 (Site was designed by me, originally on Figma)
 
 Hosted here on Github Pages.
