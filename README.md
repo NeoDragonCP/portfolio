@@ -1,3 +1,8 @@
-# Personal Portfolio
+## Personal Portfolio
 
-Please note: This site is still a work in progress. This readme will be updated when the site is finished.
+![Screenshot](screenshot.png)
+Screenshot
+
+# About
+
+_This is a work in progress, will update soon _
