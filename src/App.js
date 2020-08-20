@@ -144,8 +144,16 @@ function App() {
   const gamesRef = useRef(null);
   const contactMeRef = useRef(null);
 
-  // Theme local
-  const [currentTheme, setTheme] = useState(themeLight);
+  // * * *
+  // Theme can be saved to local storage - check if it's already there
+  let savedTheme = window.localStorage.getItem("theme") || "light"; // get the string or set "light"
+  if (savedTheme === "light") savedTheme = themeLight;
+  if (savedTheme === "dark") savedTheme = themeDark;
+
+  // Theme
+  const [currentTheme, setTheme] = useState(savedTheme);
+
+  // * * *
 
   return (
     <ThemeProvider theme={currentTheme}>
@@ -162,11 +170,16 @@ function App() {
               contactMeRef={contactMeRef}
               closeNav={() => setOpen(false)}
               switchTheme={() => {
+                let themeUsing;
                 if (currentTheme === themeLight) {
                   setTheme(themeDark);
+                  themeUsing = "dark";
                 } else {
                   setTheme(themeLight);
+                  themeUsing = "light";
                 }
+                // Save which theme using to local storage
+                window.localStorage.setItem("theme", themeUsing);
               }}
             />
             <Burger open={open} onClick={() => setOpen(!open)} />
