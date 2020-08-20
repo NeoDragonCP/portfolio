@@ -78,7 +78,7 @@ export default function ScrollToTopButton(props) {
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.7 }}
     >
-      <i class="fas fa-arrow-up"></i>
+      <i className="fas fa-arrow-up"></i>
     </ScrollButton>
   );
 }

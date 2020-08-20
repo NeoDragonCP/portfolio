@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useRef } from "react";
 import styled from "styled-components";
 import Button from "../styled-components/Button";
 
@@ -76,15 +76,89 @@ const InputBox = styled.div`
   input:valid ~ span,
   textarea:focus ~ span,
   textarea:valid ~ span {
-    color: ${(props) => props.theme.fontPrimary || "black"};
+    color: #04b07e;
     font-size: 0.8rem;
     transform: translateY(-2rem);
+  }
+  input:invalid ~ span,
+  textarea:invalid ~ span {
+    color: ${(props) => props.colorRed || "red"};
+  }
+`;
+
+const SubmitButton = styled(Button)`
+  :disabled {
+    background-color: gray;
   }
 `;
 
 export default function ContactMe(props) {
   const colorRed = "#FC1E56";
   const colorBlue = "#016e9f";
+
+  const submitButtonRef = useRef(null);
+
+  const [fullName, setFullName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [formIsValid, setFormIsValid] = useState(false);
+
+  function checkFormIsValid() {
+    // Ignore if no text is in the fields
+    if (fullName.length <= 1) return false;
+    if (email.length <= 1) return false;
+    if (message.length <= 1) return false;
+
+    // Make sure name is just a name and no numbers or strange characters
+    if (!fullName.match(/^[a-zA-Z]+$/)) {
+      console.log("Error: Name must be only letters");
+      return false;
+    }
+
+    // Now check email
+    let lastAtPos = email.lastIndexOf("@");
+    let lastDotPos = email.lastIndexOf(".");
+    if (
+      !(
+        lastAtPos < lastDotPos &&
+        lastAtPos > 0 &&
+        email.indexOf("@@") === -1 &&
+        lastDotPos > 2 &&
+        email.length - lastDotPos > 2
+      )
+    ) {
+      console.log("Error: Not a valid Email");
+      return false;
+    }
+
+    // if made it this far, form is valid
+    setFormIsValid(true);
+
+    return true;
+  }
+
+  function isFormValid() {
+    let isFormValid = checkFormIsValid();
+    setFormIsValid(isFormValid);
+    if (isFormValid === true) {
+      submitButtonRef.current.removeAttribute("disabled");
+    } else {
+      submitButtonRef.current.setAttribute("disabled", true);
+    }
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+
+    if (checkFormIsValid() === false) {
+      console.log("Form is invalid");
+      return;
+    }
+
+    // Organize the data to an object
+    let dataToSubmit = { fullName: fullName, email: email, message: message };
+    console.log(dataToSubmit);
+  }
 
   return (
     <Base>
@@ -97,18 +171,48 @@ export default function ContactMe(props) {
       <form>
         <h3>Send Message</h3>
         <InputBox colorBlue={colorBlue} colorRed={colorRed}>
-          <input type="text" required="required" />
+          <input
+            type="text"
+            required="required"
+            value={fullName}
+            onChange={(e) => {
+              setFullName(e.target.value);
+              isFormValid();
+            }}
+          />
           <span>Full Name</span>
         </InputBox>
         <InputBox colorBlue={colorBlue} colorRed={colorRed}>
-          <input type="text" required="required" />
+          <input
+            type="email"
+            required="required"
+            value={email}
+            onChange={(e) => {
+              setEmail(e.target.value);
+              isFormValid();
+            }}
+          />
           <span>Email</span>
         </InputBox>
         <InputBox colorBlue={colorBlue} colorRed={colorRed}>
-          <textarea required="required" rows="5" />
+          <textarea
+            required="required"
+            rows="5"
+            value={message}
+            onChange={(e) => {
+              setMessage(e.target.value);
+              isFormValid();
+            }}
+          />
           <span>Type your message....</span>
         </InputBox>
-        <Button backgroundColor={colorRed}>Contact Me</Button>
+        <SubmitButton
+          backgroundColor={colorRed}
+          onClick={handleSubmit}
+          ref={submitButtonRef}
+        >
+          Contact Me
+        </SubmitButton>
       </form>
     </Base>
   );
