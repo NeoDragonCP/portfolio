@@ -5,4 +5,29 @@ Screenshot
 
 # About
 
-_This is a work in progress, will update soon _
+This is my personal portfolio.
+I'm currently looking for employment in a Front End role. If you are recruiting for such a role I'd love to hear from you.
+This website was built with Javascript/React/JSX.
+
+I used styled-components to style my own custom, re-usable components throughout the site.
+Components such as the cards for displaying projects are fully dynamic. Controlled by the props passed to them. The component itself handles output and mapping through arrays as needed.
+Some components are only rendered on desktop, such as the "scroll to top" (the nav handles the jump-scrolling on mobile).
+Speaking of which, I did use some hooks such as useRef (for the scrolling to elements) and useState.
+
+Dark mode included.
+(Site was designed by me, originally on Figma)
+
+Hosted here on Github Pages.
+Set up to run "npm run deploy" to build the production build of the site.
+
+# Link To Site
+
+https://neodragoncp.github.io/portfolio/
+
+# Bugs
+
+Yup, in my own repo for a site I'm using to showcase my skills, I'm admitting there is bugs.
+The obvious one is I didn't use the Theme Context Provider correctly to pass the theme throughout the components and instead ended up passing it as a prop. I hate prop hell and prop drilling but I am actively looking for work at the time of this commit so my goal was just to get the site up to showcase my work on a visual level, hopefully land the interview, and then I can explain what I'd change to the interviewer 😂.
+I promise if you look at my other projects such as my currency convertor I have used it correctly in the past!
+Oh...
+I used a 3rd-party youtube player and it causes errors in console and resize issues on mobile.
