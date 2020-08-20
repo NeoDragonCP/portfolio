@@ -26,6 +26,8 @@ import HeaderSection from "./site-components/header/HeaderSection";
 
 import ContactMe from "./site-components/ContactMe.jsx";
 
+import ScrollToTopButton from "./site-components/ScrollToTopButton.jsx";
+
 const AboutMeSection = styled.div`
   width: 100%;
   padding: 1rem;
@@ -446,6 +448,7 @@ Collect Stars and spend them on boosts and shields to help you go further."
             </p>
           </ColumnContainer>
         </SectionContent>
+        <ScrollToTopButton refToJumpTo={homeRef} theme={currentTheme} />
       </div>
     </ThemeProvider>
   );
