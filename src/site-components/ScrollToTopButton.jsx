@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import { motion } from "framer-motion";
 
-const ScrollButton = styled.div`
+const ScrollButton = styled(motion.div)`
   position: fixed;
   bottom: 20px;
   right: 20px;
@@ -74,6 +75,8 @@ export default function ScrollToTopButton(props) {
       backgroundColor={props.theme.baseColors.blueDark}
       onClick={handleScrollToTop}
       aria-label="scroll to top"
+      whileHover={{ scale: 1.1 }}
+      whileTap={{ scale: 0.7 }}
     >
       <i class="fas fa-arrow-up"></i>
     </ScrollButton>

@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { motion } from "framer-motion";
 
 const HeaderBanner = styled.div`
   position: relative;
@@ -47,7 +48,7 @@ const HeaderImage = styled.div`
   }
 `;
 
-const HeaderFlavorText = styled.div`
+const HeaderFlavorText = styled(motion.div)`
   position: absolute;
   height: 50%;
 
@@ -62,17 +63,19 @@ const HeaderFlavorText = styled.div`
   align-items: flex-start;
 
   span {
-    font-size: 48px;
+    font-size: 52px;
     font-weight: bold;
     color: #bbe1fa;
   }
 
   p {
+    /*
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
+    */
 
-    font-size: 36px;
-    line-height: 60px;
+    font-size: 30px;
+    line-height: 50px;
 
     text-shadow: 0px 4px 4px rgba(15, 76, 117, 0.4);
   }
@@ -83,7 +86,8 @@ const HeaderFlavorText = styled.div`
     justify-content: flex-start;
     align-items: flex-start;
     p {
-      font-size: 30px;
+      font-size: 28px;
+      line-height: 40px;
       padding-top: 0.1rem;
       padding-bottom: 0.1rem;
     }
@@ -187,14 +191,31 @@ export default function HeaderSection() {
         </a>
       </SocialMediaIcon>
       <HeaderFlavorText>
-        <span>Stephen McVicker</span>
-        <p>
+        <motion.div
+          animate={{ scale: [0.5, 1.2, 1], opacity: [0, 1, 1] }}
+          transition={{ delay: 0, duration: 0.5, ease: "easeOut" }}
+        >
+          <span>Stephen McVicker</span>
+        </motion.div>
+
+        <motion.p
+          animate={{ scale: [0.5, 1], opacity: [0, 1] }}
+          transition={{ delay: 0.5 * 1, duration: 0.2, ease: "easeOut" }}
+        >
           UI Developer
-          <br />
+        </motion.p>
+        <motion.p
+          animate={{ scale: [0.5, 1], opacity: [0, 1] }}
+          transition={{ delay: 0.5 + 0.2 * 1, duration: 0.2, ease: "easeOut" }}
+        >
           Game Designer
-          <br />
+        </motion.p>
+        <motion.p
+          animate={{ scale: [0.5, 1], opacity: [0, 1] }}
+          transition={{ delay: 0.5 + 0.2 * 2, duration: 0.2, ease: "easeOut" }}
+        >
           Software Engineer
-        </p>
+        </motion.p>
       </HeaderFlavorText>
     </HeaderBanner>
   );
