@@ -2,6 +2,7 @@ import React, { useState, useRef } from "react";
 import styled from "styled-components";
 import Button from "../styled-components/Button";
 import emailjs from "emailjs-com";
+import { motion } from "framer-motion";
 
 const Base = styled.div`
   width: 100%;
@@ -88,17 +89,100 @@ const InputBox = styled.div`
 `;
 
 const SubmitButton = styled(Button)`
+  width: 200px;
+  height: 64px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   :disabled {
     background-color: gray;
   }
 `;
 
+const LoadingButton = styled(SubmitButton)`
+  cursor: default;
+  .lds-ellipsis {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+  }
+  .lds-ellipsis div {
+    position: absolute;
+    top: 33px;
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    background: #fff;
+    animation-timing-function: cubic-bezier(0, 1, 1, 0);
+  }
+  .lds-ellipsis div:nth-child(1) {
+    left: 8px;
+    animation: lds-ellipsis1 0.6s infinite;
+  }
+  .lds-ellipsis div:nth-child(2) {
+    left: 8px;
+    animation: lds-ellipsis2 0.6s infinite;
+  }
+  .lds-ellipsis div:nth-child(3) {
+    left: 32px;
+    animation: lds-ellipsis2 0.6s infinite;
+  }
+  .lds-ellipsis div:nth-child(4) {
+    left: 56px;
+    animation: lds-ellipsis3 0.6s infinite;
+  }
+  @keyframes lds-ellipsis1 {
+    0% {
+      transform: scale(0);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  @keyframes lds-ellipsis3 {
+    0% {
+      transform: scale(1);
+    }
+    100% {
+      transform: scale(0);
+    }
+  }
+  @keyframes lds-ellipsis2 {
+    0% {
+      transform: translate(0, 0);
+    }
+    100% {
+      transform: translate(24px, 0);
+    }
+  }
+`;
+
+const SucessMessage = styled(motion.div)`
+  width: 50%;
+  padding: 4rem 0 4rem 0;
+  margin: 5rem 0 5rem 0;
+  i {
+    font-size: 3rem;
+    color: #04b07e;
+    margin: 0rem 0 2rem 0;
+  }
+`;
+
 function ContactSuccess(props) {
   return (
-    <div>
+    <SucessMessage
+      animate={{ scale: [0.5, 1.2, 1], opacity: [0, 1, 1] }}
+      transition={{ delay: 0, duration: 0.5, ease: "easeOut" }}
+    >
+      <span>
+        <i className="far fa-check-circle"></i>
+      </span>
       <h2>Message Sent</h2>
       <p>Thank you for reaching out to me. I'll be in touch shortly.</p>
-    </div>
+    </SucessMessage>
   );
 }
 
@@ -108,12 +192,14 @@ export default function ContactMe(props) {
 
   const submitButtonRef = useRef(null);
 
+  // Form State
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [formIsValid, setFormIsValid] = useState(false);
-
   const [messageSentSuccess, setMessageSentSuccess] = useState(false);
+
+  const [submitButtonLoading, setSubmitButtonLoading] = useState(false);
 
   function checkFormIsValid() {
     // Ignore if no text is in the fields
@@ -171,6 +257,9 @@ export default function ContactMe(props) {
     let dataToSubmit = { fullName: fullName, email: email, message: message };
     console.log(dataToSubmit);
 
+    // Set the button to loading state
+    setSubmitButtonLoading(true);
+
     // EmailJS
     let template_params = {
       reply_to: `${email}`,
@@ -190,10 +279,12 @@ export default function ContactMe(props) {
         (response) => {
           console.log("SUCCESS!", response.status, response.text);
           setMessageSentSuccess(true);
+          setSubmitButtonLoading(false);
         },
         (err) => {
           console.log("FAILED...", err);
           setMessageSentSuccess(false);
+          setSubmitButtonLoading(false);
         }
       );
   }
@@ -248,13 +339,24 @@ export default function ContactMe(props) {
             />
             <span>Type your message....</span>
           </InputBox>
-          <SubmitButton
-            backgroundColor={colorRed}
-            onClick={handleSubmit}
-            ref={submitButtonRef}
-          >
-            Contact Me
-          </SubmitButton>
+          {submitButtonLoading === true ? (
+            <LoadingButton backgroundColor={colorRed}>
+              <div class="lds-ellipsis">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+              </div>
+            </LoadingButton>
+          ) : (
+            <SubmitButton
+              backgroundColor={colorRed}
+              onClick={handleSubmit}
+              ref={submitButtonRef}
+            >
+              Contact Me
+            </SubmitButton>
+          )}
         </form>
       )}
     </Base>
