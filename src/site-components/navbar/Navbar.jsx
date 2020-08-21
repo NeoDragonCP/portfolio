@@ -69,6 +69,8 @@ const Navbar = styled.div`
     @media (max-width: 768px) {
       flex-flow: column nowrap;
       background: ${(props) => props.theme.gradientHeader || "#26afed"};
+      box-shadow: ${({ open }) =>
+        open ? "-8px 0px 20px rgba(255, 255, 255, 0.4);" : ""};
       position: fixed;
       top: 0;
       right: 0;

@@ -4,7 +4,7 @@ import "./App.css"; /* Basic app styling */
 import styled, { ThemeProvider } from "styled-components";
 
 /* Youtube Video Player */
-import ReactPlayer from "react-player";
+import YoutubeEmbedVideo from "youtube-embed-video";
 
 /* My styled Elements */
 import SectionHeader from "./site-components/SectionHeader.jsx";
@@ -352,8 +352,9 @@ function App() {
             alignItems="center"
             justifyContent="center"
           >
-            <ReactPlayer
-              url="https://www.youtube.com/watch?v=XxNpuetG8qI"
+            <YoutubeEmbedVideo
+              videoId="XxNpuetG8qI"
+              suggestions={false}
               style={{ margin: "4rem 0 0 0" }}
             />
             ZENFORMS: Protectors launch trailer.
@@ -395,8 +396,9 @@ and participate in online trades, battles, and events."
                 { url: "/zpscreen4.gif", alt: "volcano-battle" },
               ]}
             />
-            <ReactPlayer
-              url="https://www.youtube.com/watch?v=xZjCAs_0-I8"
+            <YoutubeEmbedVideo
+              videoId="xZjCAs_0-I8"
+              suggestions={false}
               style={{ margin: "4rem 0 0 0" }}
             />
             ShapeShip launch trailer.

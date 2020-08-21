@@ -161,21 +161,47 @@ const LoadingButton = styled(SubmitButton)`
 `;
 
 const SucessMessage = styled(motion.div)`
+  position: relative;
   width: 50%;
   padding: 4rem 0 4rem 0;
   margin: 5rem 0 5rem 0;
+
+  background-color: ${(props) => props.theme.cardBG || "#88a2ac"};
+  border-radius: 16px;
+  box-shadow: 0px 4px 4px rgba(48, 48, 48, 0.2);
+  color: ${(props) => props.theme.fontPrimary || "black"};
+
+  perspective: 3000;
+
+  transition: all 0.3s;
+
   i {
     font-size: 3rem;
     color: #04b07e;
     margin: 0rem 0 2rem 0;
+  }
+
+  :hover {
+    box-shadow: 0px 8px 20px rgba(255, 255, 255, 0.4);
+  }
+
+  @media (max-width: 768px) {
+    width: 100%;
   }
 `;
 
 function ContactSuccess(props) {
   return (
     <SucessMessage
-      animate={{ scale: [0.5, 1.2, 1], opacity: [0, 1, 1] }}
-      transition={{ delay: 0, duration: 0.5, ease: "easeOut" }}
+      animate={{
+        scale: [0.5, 1.2, 1],
+        opacity: [0, 1, 1],
+        rotateX: [-30, -30, 10, 0],
+        rotateY: [-30, -30, 10, 0],
+      }}
+      transition={{ delay: 0, duration: 0.3, ease: "easeIn" }}
+      whileHover={{ rotateY: -20, rotateX: -20 }}
+      whileTap={{ rotateY: -20, rotateX: -20 }}
     >
       <span>
         <i className="far fa-check-circle"></i>
@@ -208,7 +234,7 @@ export default function ContactMe(props) {
     if (message.length <= 1) return false;
 
     // Make sure name is just a name and no numbers or strange characters
-    if (!fullName.match(/^[a-zA-Z]+$/)) {
+    if (!fullName.match(/^[ A-Za-z]+$/)) {
       console.log("Error: Name must be only letters");
       return false;
     }
@@ -317,7 +343,7 @@ export default function ContactMe(props) {
           <InputBox colorBlue={colorBlue} colorRed={colorRed}>
             <input
               type="email"
-              inputmode="email"
+              inputMode="email"
               required="required"
               value={email}
               onChange={(e) => {
@@ -341,7 +367,7 @@ export default function ContactMe(props) {
           </InputBox>
           {submitButtonLoading === true ? (
             <LoadingButton backgroundColor={colorRed}>
-              <div class="lds-ellipsis">
+              <div className="lds-ellipsis">
                 <div></div>
                 <div></div>
                 <div></div>
