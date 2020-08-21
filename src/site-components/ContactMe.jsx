@@ -1,6 +1,7 @@
 import React, { useState, useRef } from "react";
 import styled from "styled-components";
 import Button from "../styled-components/Button";
+import emailjs from "emailjs-com";
 
 const Base = styled.div`
   width: 100%;
@@ -92,6 +93,15 @@ const SubmitButton = styled(Button)`
   }
 `;
 
+function ContactSuccess(props) {
+  return (
+    <div>
+      <h2>Message Sent</h2>
+      <p>Thank you for reaching out to me. I'll be in touch shortly.</p>
+    </div>
+  );
+}
+
 export default function ContactMe(props) {
   const colorRed = "#FC1E56";
   const colorBlue = "#016e9f";
@@ -102,6 +112,8 @@ export default function ContactMe(props) {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [formIsValid, setFormIsValid] = useState(false);
+
+  const [messageSentSuccess, setMessageSentSuccess] = useState(false);
 
   function checkFormIsValid() {
     // Ignore if no text is in the fields
@@ -158,6 +170,32 @@ export default function ContactMe(props) {
     // Organize the data to an object
     let dataToSubmit = { fullName: fullName, email: email, message: message };
     console.log(dataToSubmit);
+
+    // EmailJS
+    let template_params = {
+      reply_to: `${email}`,
+      from_name: `${fullName}`,
+      to_name: "Stephen",
+      message_html: `${message}`,
+    };
+
+    emailjs
+      .send(
+        "default_service",
+        "template_Tx4TTtW7",
+        template_params,
+        "user_sFnGucXI5lFx4sbHyoaEn"
+      )
+      .then(
+        (response) => {
+          console.log("SUCCESS!", response.status, response.text);
+          setMessageSentSuccess(true);
+        },
+        (err) => {
+          console.log("FAILED...", err);
+          setMessageSentSuccess(false);
+        }
+      );
   }
 
   return (
@@ -168,52 +206,57 @@ export default function ContactMe(props) {
         Email: mcvickerstephen@gmail.com
       </p>
 
-      <form>
-        <h3>Send Message</h3>
-        <InputBox colorBlue={colorBlue} colorRed={colorRed}>
-          <input
-            type="text"
-            required="required"
-            value={fullName}
-            onChange={(e) => {
-              setFullName(e.target.value);
-              isFormValid();
-            }}
-          />
-          <span>Full Name</span>
-        </InputBox>
-        <InputBox colorBlue={colorBlue} colorRed={colorRed}>
-          <input
-            type="email"
-            required="required"
-            value={email}
-            onChange={(e) => {
-              setEmail(e.target.value);
-              isFormValid();
-            }}
-          />
-          <span>Email</span>
-        </InputBox>
-        <InputBox colorBlue={colorBlue} colorRed={colorRed}>
-          <textarea
-            required="required"
-            rows="5"
-            value={message}
-            onChange={(e) => {
-              setMessage(e.target.value);
-              isFormValid();
-            }}
-          />
-          <span>Type your message....</span>
-        </InputBox>
-        <SubmitButton
-          backgroundColor={colorRed}
-          onClick={handleSubmit}
-          ref={submitButtonRef}
-        >
-          Contact Me
-        </SubmitButton>
-      </form>
+      {messageSentSuccess === true ? (
+        <ContactSuccess />
+      ) : (
+        <form>
+          <h3>Send Message</h3>
+          <InputBox colorBlue={colorBlue} colorRed={colorRed}>
+            <input
+              type="text"
+              required="required"
+              value={fullName}
+              onChange={(e) => {
+                setFullName(e.target.value);
+                isFormValid();
+              }}
+            />
+            <span>Full Name</span>
+          </InputBox>
+          <InputBox colorBlue={colorBlue} colorRed={colorRed}>
+            <input
+              type="email"
+              inputmode="email"
+              required="required"
+              value={email}
+              onChange={(e) => {
+                setEmail(e.target.value);
+                isFormValid();
+              }}
+            />
+            <span>Email</span>
+          </InputBox>
+          <InputBox colorBlue={colorBlue} colorRed={colorRed}>
+            <textarea
+              required="required"
+              rows="5"
+              value={message}
+              onChange={(e) => {
+                setMessage(e.target.value);
+                isFormValid();
+              }}
+            />
+            <span>Type your message....</span>
+          </InputBox>
+          <SubmitButton
+            backgroundColor={colorRed}
+            onClick={handleSubmit}
+            ref={submitButtonRef}
+          >
+            Contact Me
+          </SubmitButton>
+        </form>
+      )}
     </Base>
   );
 }

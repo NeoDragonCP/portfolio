@@ -199,19 +199,19 @@ export default function HeaderSection() {
         </motion.div>
 
         <motion.p
-          animate={{ scale: [0.5, 1], opacity: [0, 1] }}
+          animate={{ x: [10, 0], opacity: [0, 1] }}
           transition={{ delay: 0.5 * 1, duration: 0.2, ease: "easeOut" }}
         >
           UI Developer
         </motion.p>
         <motion.p
-          animate={{ scale: [0.5, 1], opacity: [0, 1] }}
+          animate={{ x: [20, 0], opacity: [0, 1] }}
           transition={{ delay: 0.5 + 0.2 * 1, duration: 0.2, ease: "easeOut" }}
         >
           Game Designer
         </motion.p>
         <motion.p
-          animate={{ scale: [0.5, 1], opacity: [0, 1] }}
+          animate={{ x: [30, 0], opacity: [0, 1] }}
           transition={{ delay: 0.5 + 0.2 * 2, duration: 0.2, ease: "easeOut" }}
         >
           Software Engineer
