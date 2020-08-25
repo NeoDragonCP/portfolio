@@ -24,7 +24,13 @@ export default function RightNav(props) {
   return (
     <React.Fragment>
       <ul id="nav">
-        <li onClick={switchTheme}>Switch Theme</li>
+        <li id="theme-button" onClick={switchTheme}>
+          {props.theme.name === "light" ? (
+            <i className="fas fa-moon"></i>
+          ) : (
+            <i className="fas fa-sun"></i>
+          )}
+        </li>
         <li onClick={handleScrollToRef.bind(this, homeRef)}>Home</li>
         <li onClick={handleScrollToRef.bind(this, aboutMeRef)}>About Me</li>
         <li onClick={handleScrollToRef.bind(this, webProjectsRef)}>

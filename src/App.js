@@ -67,6 +67,7 @@ const themeColors = {
 };
 
 const themeLight = {
+  name: "light",
   gradient1: `linear-gradient(
     to right,
     ${themeColors.blueMedium},
@@ -89,6 +90,9 @@ const themeLight = {
   socialIconBG: `${themeColors.blueLight}`,
   socialIconColor: `${themeColors.blueMedium}`,
 
+  themeSwitcherBG: `${themeColors.blueDark2}`,
+  themeSwitcherColor: `${themeColors.blueLight}`,
+
   fontPrimary: `${themeColors.black}`,
   fontSecondary: `${themeColors.grayDark}`,
   fontInvert: `${themeColors.white}`,
@@ -99,6 +103,7 @@ const themeLight = {
 };
 
 const themeDark = {
+  name: "dark",
   gradient1: `linear-gradient(
     to right,
     ${themeColors.blueDark},
@@ -121,6 +126,9 @@ const themeDark = {
 
   socialIconBG: `${themeColors.blueDark2}`,
   socialIconColor: `${themeColors.blueDark}`,
+
+  themeSwitcherBG: `${themeColors.blueLight}`,
+  themeSwitcherColor: `${themeColors.blueDark2}`,
 
   fontPrimary: `${themeColors.gray}`,
   fontSecondary: `${themeColors.grayDark}`,

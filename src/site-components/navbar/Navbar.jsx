@@ -35,29 +35,40 @@ const Navbar = styled.div`
       transition: all 0.2s;
       :hover {
         color: #e41b4d;
-        text-shadow: 0px 4px 4px rgba(15, 76, 117, 0.4);
+        text-shadow: 0px 0px 8px rgba(255, 255, 255, 0.4);
       }
     }
     /* fake button */
     #contactme-button {
       padding: 0.6rem 1.5rem 0.6rem 1.5rem;
       background-color: #e41b4d;
-      /*
-      border: 2px solid #e41b4d;
-      */
       border-radius: 6px;
       cursor: pointer;
       transition: all 0.2s;
       :hover {
         color: white;
         filter: brightness(120%);
-        /*
-        background-color: white;
-        border: 2px solid #e41b4d;
-        color: #e41b4d;
-        */
       }
     }
+
+    #theme-button {
+      width: 40px;
+      height: 40px;
+      background: ${(props) => props.theme.themeSwitcherBG || "black"};
+      color: ${(props) => props.theme.themeSwitcherColor || "white"};
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      border-radius: 50vh;
+      cursor: pointer;
+      transition: all 0.2s;
+      :hover {
+        filter: brightness(120%);
+      }
+    }
+
     #toggle {
       padding-right: 2rem;
     }
