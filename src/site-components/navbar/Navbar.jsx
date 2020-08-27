@@ -81,6 +81,7 @@ const Navbar = styled.div`
     /* Mobile Scaling */
     @media (max-width: 768px) {
       flex-flow: column nowrap;
+      align-items: flex-end;
       background: ${(props) => props.theme.gradientHeader || "#26afed"};
       border-left: solid 1px
         ${(props) => props.theme.baseColors.blueLight || "#26afed"};
@@ -92,6 +93,7 @@ const Navbar = styled.div`
       width: 300px;
       height: 110%;
       padding-top: 3rem;
+      padding-right: 0.2rem;
       transform: ${({ open }) =>
         open ? "translateX(0%)" : "translateX(100%)"};
       li {

@@ -90,8 +90,8 @@ const themeLight = {
   socialIconBG: `${themeColors.blueLight}`,
   socialIconColor: `${themeColors.blueMedium}`,
 
-  themeSwitcherBG: `${themeColors.blueDark2}`,
-  themeSwitcherColor: `${themeColors.blueLight}`,
+  themeSwitcherColor: `${themeColors.blueDark2}`,
+  themeSwitcherBG: `${themeColors.blueMedium}`,
 
   fontPrimary: `${themeColors.black}`,
   fontSecondary: `${themeColors.grayDark}`,
@@ -127,8 +127,8 @@ const themeDark = {
   socialIconBG: `${themeColors.blueDark2}`,
   socialIconColor: `${themeColors.blueDark}`,
 
-  themeSwitcherBG: `${themeColors.blueLight}`,
-  themeSwitcherColor: `${themeColors.blueDark2}`,
+  themeSwitcherColor: `${themeColors.blueLight}`,
+  themeSwitcherBG: `${themeColors.blueDark3}`,
 
   fontPrimary: `${themeColors.gray}`,
   fontSecondary: `${themeColors.grayDark}`,
