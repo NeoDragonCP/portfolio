@@ -1,14 +1,30 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 
 export default function RightNav(props) {
   // Destructuring props - the passed refs for each section
   const { homeRef, aboutMeRef, webProjectsRef, gamesRef, contactMeRef } = props;
 
   // Close Nav on click function (resets open state in parent/app.js)
-  const { closeNav } = props;
+  const { open, closeNav } = props;
 
   // Theme changing
   const { switchTheme } = props;
+
+  // Ref to the UL container
+  const container = useRef(null);
+
+  // Allow for outside click
+  useEffect(() => {
+    function handleOutsideClick(event) {
+      if (!container.current.contains(event.target)) {
+        if (!open) return;
+        closeNav();
+      }
+    }
+
+    window.addEventListener("click", handleOutsideClick);
+    return () => window.removeEventListener("click", handleOutsideClick);
+  }, [open, container, closeNav]); // add in the dependencies
 
   // Jump to ref
   function handleScrollToRef(ref) {
@@ -23,7 +39,7 @@ export default function RightNav(props) {
 
   return (
     <React.Fragment>
-      <ul id="nav">
+      <ul id="nav" ref={container}>
         <li id="theme-button" onClick={switchTheme}>
           {props.theme.name === "light" ? (
             <i className="fas fa-moon"></i>

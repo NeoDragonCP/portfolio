@@ -19,6 +19,7 @@ const Navbar = styled.div`
     font-weight: bold;
     font-size: 24px;
   }
+
   #nav {
     list-style: none;
     display: flex;
@@ -76,12 +77,15 @@ const Navbar = styled.div`
       position: relative;
       font-size: 1.3rem;
     }
+
     /* Mobile Scaling */
     @media (max-width: 768px) {
       flex-flow: column nowrap;
       background: ${(props) => props.theme.gradientHeader || "#26afed"};
+      border-left: solid 1px
+        ${(props) => props.theme.baseColors.blueLight || "#26afed"};
       box-shadow: ${({ open }) =>
-        open ? "-8px 0px 20px rgba(255, 255, 255, 0.4);" : ""};
+        open ? "-2px 0px 10px rgba(255, 255, 255, 0.4);" : ""};
       position: fixed;
       top: 0;
       right: 0;
@@ -94,6 +98,23 @@ const Navbar = styled.div`
         margin: 1.5rem 1.5rem 1.5rem 0;
         font-size: 1.5rem;
       }
+    }
+  }
+
+  #darkoverlay {
+    @media (max-width: 768px) {
+      width: 100vw;
+      height: 100vh;
+      background-color: ${(props) => props.theme.baseColors.black || "black"};
+      z-index: -999;
+
+      position: fixed;
+      top: 0;
+      left: 0;
+
+      opacity: ${({ open }) => (open ? "60%" : "0")};
+
+      transition: all 0.4s;
     }
   }
 `;

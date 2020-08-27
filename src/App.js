@@ -191,6 +191,7 @@ function App() {
               }}
             />
             <Burger open={open} onClick={() => setOpen(!open)} />
+            <div id="darkoverlay"></div>
           </div>
         </Navbar>
         <HeaderSection />
