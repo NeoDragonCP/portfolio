@@ -2,6 +2,7 @@ import React, { useState, useRef } from "react";
 import "./App.css"; /* Basic app styling */
 
 import styled, { ThemeProvider } from "styled-components";
+import { motion } from "framer-motion";
 
 /* Youtube Video Player */
 import YoutubeEmbedVideo from "youtube-embed-video";
@@ -124,8 +125,8 @@ const themeDark = {
   cardBG: `${themeColors.blueDark3}`,
   gameCardBG: `${themeColors.blueDark2}`,
 
-  socialIconBG: `${themeColors.blueDark2}`,
-  socialIconColor: `${themeColors.blueDark}`,
+  socialIconBG: `${themeColors.blueDark}`,
+  socialIconColor: `${themeColors.blueDark2}`,
 
   themeSwitcherColor: `${themeColors.blueLight}`,
   themeSwitcherBG: `${themeColors.blueDark3}`,
@@ -267,30 +268,50 @@ function App() {
                 <span>Full Resume available upon request</span>
               </p>
               <RowContainer alignItems="center" justifyContent="flex-start">
-                <img
-                  src={process.env.PUBLIC_URL + "/logoreact.png"}
-                  alt="react-logo"
-                  width="80px"
-                  height="80px"
-                />
-                <img
-                  src={process.env.PUBLIC_URL + "/logojs.png"}
-                  alt="javascript-logo"
-                  width="80px"
-                  height="80px"
-                />
-                <img
-                  src={process.env.PUBLIC_URL + "/logocss.png"}
-                  alt="css-logo"
-                  width="80px"
-                  height="80px"
-                />
-                <img
-                  src={process.env.PUBLIC_URL + "/logounity.png"}
-                  alt="unity-game-engine-logo"
-                  width="80px"
-                  height="80px"
-                />
+                <motion.div
+                  whileHover={{ rotate: 180, y: -10 }}
+                  whileTap={{ scale: 0.8 }}
+                >
+                  <img
+                    src={process.env.PUBLIC_URL + "/logoreact.png"}
+                    alt="react-logo"
+                    width="80px"
+                    height="80px"
+                  />
+                </motion.div>
+                <motion.div
+                  whileHover={{ rotate: 180, y: -10 }}
+                  whileTap={{ scale: 0.8 }}
+                >
+                  <img
+                    src={process.env.PUBLIC_URL + "/logojs.png"}
+                    alt="javascript-logo"
+                    width="80px"
+                    height="80px"
+                  />
+                </motion.div>
+                <motion.div
+                  whileHover={{ rotate: 180, y: -10 }}
+                  whileTap={{ scale: 0.8 }}
+                >
+                  <img
+                    src={process.env.PUBLIC_URL + "/logocss.png"}
+                    alt="css-logo"
+                    width="80px"
+                    height="80px"
+                  />
+                </motion.div>
+                <motion.div
+                  whileHover={{ rotate: 180, y: -10 }}
+                  whileTap={{ scale: 0.8 }}
+                >
+                  <img
+                    src={process.env.PUBLIC_URL + "/logounity.png"}
+                    alt="unity-game-engine-logo"
+                    width="80px"
+                    height="80px"
+                  />
+                </motion.div>
               </RowContainer>
             </ColumnContainer>
           </AboutMeSection>
