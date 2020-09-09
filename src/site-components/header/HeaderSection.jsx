@@ -16,7 +16,7 @@ const HeaderBanner = styled.div`
   }
 `;
 
-const HeaderImage = styled.div`
+const HeaderImage = styled(motion.div)`
   position: absolute;
   width: 460px;
   height: 460px;
@@ -159,7 +159,10 @@ const SocialMediaIcon = styled.div`
 export default function HeaderSection() {
   return (
     <HeaderBanner>
-      <HeaderImage>
+      <HeaderImage
+        animate={{ opacity: [0, 1] }}
+        transition={{ delay: 0, duration: 0.5, ease: "easeOut" }}
+      >
         <img src={process.env.PUBLIC_URL + "/Me2.jpg"} alt="profile-pic" />
       </HeaderImage>
       <SocialMediaIcon>
@@ -193,26 +196,26 @@ export default function HeaderSection() {
       <HeaderFlavorText>
         <motion.div
           animate={{ scale: [0.5, 1.2, 1], opacity: [0, 1, 1] }}
-          transition={{ delay: 0, duration: 0.5, ease: "easeOut" }}
+          transition={{ delay: 0.3, duration: 0.5, ease: "easeOut" }}
         >
           <span>Stephen McVicker</span>
         </motion.div>
 
         <motion.p
           animate={{ x: [10, 0], opacity: [0, 1] }}
-          transition={{ delay: 0.5 * 1, duration: 0.2, ease: "easeOut" }}
+          transition={{ delay: 0.5 * 2, duration: 0.2, ease: "easeOut" }}
         >
           UI Developer
         </motion.p>
         <motion.p
           animate={{ x: [20, 0], opacity: [0, 1] }}
-          transition={{ delay: 0.5 + 0.2 * 1, duration: 0.2, ease: "easeOut" }}
+          transition={{ delay: 0.5 + 0.2 * 2, duration: 0.2, ease: "easeOut" }}
         >
           Game Designer
         </motion.p>
         <motion.p
           animate={{ x: [30, 0], opacity: [0, 1] }}
-          transition={{ delay: 0.5 + 0.2 * 2, duration: 0.2, ease: "easeOut" }}
+          transition={{ delay: 0.5 + 0.2 * 3, duration: 0.2, ease: "easeOut" }}
         >
           Software Engineer
         </motion.p>

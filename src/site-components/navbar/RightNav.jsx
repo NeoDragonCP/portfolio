@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from "react";
+import ReactTooltip from "react-tooltip";
 
 export default function RightNav(props) {
   // Destructuring props - the passed refs for each section
@@ -39,8 +40,14 @@ export default function RightNav(props) {
 
   return (
     <React.Fragment>
+      <ReactTooltip />
       <ul id="nav" ref={container}>
-        <li id="theme-button" onClick={switchTheme}>
+        <li
+          id="theme-button"
+          onClick={switchTheme}
+          data-tip="Toggle Theme"
+          data-place="left"
+        >
           {props.theme.name === "light" ? (
             <i className="fas fa-moon"></i>
           ) : (
