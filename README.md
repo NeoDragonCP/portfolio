@@ -31,5 +31,5 @@ https://neodragoncp.github.io/portfolio/
 Yup, in my own repo for a site I'm using to showcase my skills, I'm admitting there is bugs.
 The obvious one is I didn't use the Theme Context Provider correctly to pass the theme throughout the components and instead ended up passing it as a prop. I hate prop hell and prop drilling but I am actively looking for work at the time of this commit so my goal was just to get the site up to showcase my work on a visual level, hopefully land the interview, and then I can explain what I'd change to the interviewer 😂.
 I promise if you look at my other projects such as my currency convertor I have used it correctly in the past!
-Oh...
-I used a 3rd-party youtube player and it causes errors in console and resize issues on mobile.
+
+If you are getting console errors, try disabling ad blocker. The errors are caused by advert trackers from the Youtube videos that are embedded in the page.
