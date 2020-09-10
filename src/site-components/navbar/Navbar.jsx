@@ -104,6 +104,7 @@ const Navbar = styled.div`
   }
 
   #darkoverlay {
+    display: ${({ open }) => (open ? "block" : "none")};
     @media (max-width: 768px) {
       width: 100vw;
       height: 100vh;

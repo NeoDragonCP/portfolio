@@ -489,15 +489,14 @@ Collect Stars and spend them on boosts and shields to help you go further."
               <br /> Original design in Figma.
               <br /> Created with React, my own custom styled-components, and
               love ❤️. View source on{" "}
-              <span
-                style={{
-                  textDecoration: "underline",
-                  color: `${currentTheme.linkColor}`,
-                  cursor: "pointer",
-                }}
+              <a
+                href="https://github.com/NeoDragonCP/portfolio"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ position: "initial" }}
               >
                 Github
-              </span>
+              </a>
               .
             </p>
           </ColumnContainer>
