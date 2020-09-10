@@ -221,7 +221,13 @@ function App() {
               alignItems="center"
               justifyContent="center"
             >
-              <p style={{ fontSize: "1.1rem", paddingBottom: "4rem" }}>
+              <p
+                style={{
+                  fontSize: "1.1rem",
+                  paddingTop: "3rem",
+                  paddingBottom: "4rem",
+                }}
+              >
                 Creative software developer with 8 years of expertise across
                 mobile and web games and applications.
                 <br /> 3+ years experience as a UI/UX Developer with modern
@@ -264,6 +270,9 @@ function App() {
                 team in web development. I really enjoy using React library and
                 strive to make simple, reusable components, and not pass props
                 all over the place. 😆
+                <br />
+                I have also passed the Linkedin skills assessments on all of the
+                skills listed below.
                 <br />
                 <span>Full Resume available upon request</span>
               </p>
