@@ -6,6 +6,23 @@ import Card from "../styled-components/Card";
 import ColumnContainer from "../styled-components/ColumnContrainer";
 import RowContainer from "../styled-components/RowContainer";
 
+const BaseDiv = styled.div`
+  position: relative;
+  transition: all 0.3s;
+
+  :hover {
+    transform: translateY(-1rem) scale(1.05);
+
+    h4 {
+      background: linear-gradient(to right, #26afed, #016e9f);
+      text-shadow: none;
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  }
+`;
+
 const ProjectScreenshot = styled.div`
   width: 100%;
   height: 270px;
@@ -96,7 +113,7 @@ export default function ProjectCard(props) {
   // * * * * *
 
   return (
-    <React.Fragment>
+    <BaseDiv>
       <Card
         width="320px"
         height="520px"
@@ -117,14 +134,22 @@ export default function ProjectCard(props) {
           <p style={{ display: "flex", flex: "1,1,0" }}>{description}</p>
         </ProjectDetailsContainer>
         <RowContainer bottom="-20px" justifyContent="space-evenly">
-          <Button type="primary" onClick={handleDemoClick}>
-            Demo
-          </Button>
-          <ButtonGithub onClick={handleGithubClick}>
-            View On Github
-          </ButtonGithub>
+          {props.demoURL ? (
+            <Button type="primary" onClick={handleDemoClick}>
+              Demo
+            </Button>
+          ) : (
+            <React.Fragment />
+          )}
+          {props.githubURL ? (
+            <ButtonGithub onClick={handleGithubClick}>
+              View On Github
+            </ButtonGithub>
+          ) : (
+            <React.Fragment />
+          )}
         </RowContainer>
       </Card>
-    </React.Fragment>
+    </BaseDiv>
   );
 }

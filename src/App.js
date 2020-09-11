@@ -276,7 +276,11 @@ function App() {
                 <br />
                 <span>Full Resume available upon request</span>
               </p>
-              <RowContainer alignItems="center" justifyContent="flex-start">
+              <RowContainer
+                alignItems="center"
+                justifyContent="flex-start"
+                overflowX="hidden"
+              >
                 <motion.div
                   whileHover={{ rotate: 180, y: -10 }}
                   whileTap={{ scale: 0.8 }}
@@ -333,14 +337,22 @@ function App() {
           Web Projects
         </SectionHeader>
         <SectionContent
-          padding="5rem 0 5rem 0"
+          padding="2rem 0 5rem 0"
           backgroundColor={currentTheme.bgBlueLight}
         >
           <RowContainer
-            padding="0.5rem 2rem 0.5rem 2rem"
+            padding="2rem 2rem 0.5rem 2rem"
             justifyContent="space-between"
             alignItems="center"
           >
+            <ProjectCard
+              title="The Random Beer App"
+              description="A private project using the BreweryDB API. Fetches a random beer and stores brewery info. Designed with mobile as a focus."
+              tags={["#Router", "#Fetch", "#FramerMotion"]}
+              imageURL="/BeerScreenshot.png"
+              demoURL="https://youtu.be/f2kSzna6f7o"
+              theme={currentTheme}
+            />
             <ProjectCard
               title="Password Generator"
               description="Using styled-components, along with the ability to select custom themes, I wanted to create a React version of a tutorial by Florin Poppin."
@@ -360,7 +372,7 @@ function App() {
               theme={currentTheme}
             />
             <ProjectCard
-              title="This website."
+              title="This website"
               description="Custom made, reusable, styled-components. Easily change styles and expand elements using props."
               tags={["#React", "#Components"]}
               imageURL="/WebsiteCodeScreenshot.png"
@@ -377,6 +389,7 @@ function App() {
             Check Out My Github For More
           </a>
         </SectionContent>
+
         <SectionHeader
           backgroundColor={currentTheme.baseColors.blueDark}
           color={currentTheme.bgBlueLight}
