@@ -65,6 +65,7 @@ const ProjectTag = styled.div`
 `;
 
 const ProjectDetailsContainer = styled(ColumnContainer)`
+  margin-top: 1rem;
   padding: 0 0.5rem 0.5rem 0.5rem;
   text-align: left;
   h4 {
@@ -136,7 +137,7 @@ export default function ProjectCard(props) {
     <BaseDiv>
       <Card
         width="340px"
-        height="560px"
+        height="570px"
         fontColor="#016e9f"
         padding="0.5rem"
         backgroundColor={props.theme.cardBG}
