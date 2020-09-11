@@ -45,6 +45,8 @@ const Button = styled.button`
   font-weight: bold;
   text-transform: uppercase;
 
+  outline: none;
+
   transition: all 0.3s ease;
 
   > i {

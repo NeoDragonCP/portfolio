@@ -350,7 +350,7 @@ function App() {
               description="A private project using the BreweryDB API. Fetches a random beer and stores brewery info. Designed with mobile as a focus."
               tags={["#Router", "#Fetch", "#FramerMotion"]}
               imageURL="/BeerScreenshot.png"
-              demoURL="https://youtu.be/f2kSzna6f7o"
+              youtubeURL="https://youtu.be/f2kSzna6f7o"
               theme={currentTheme}
             />
             <ProjectCard

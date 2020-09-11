@@ -13,6 +13,12 @@ const BaseDiv = styled.div`
   :hover {
     transform: translateY(-1rem) scale(1.05);
 
+    .card {
+      -webkit-box-shadow: 0px 10px 17px 0px rgba(38, 175, 237, 0.3);
+      -moz-box-shadow: 0px 10px 17px 0px rgba(38, 175, 237, 0.3);
+      box-shadow: 0px 10px 17px 0px rgba(38, 175, 237, 0.3);
+    }
+
     h4 {
       background: linear-gradient(to right, #26afed, #016e9f);
       text-shadow: none;
@@ -45,7 +51,7 @@ const ProjectScreenshot = styled.div`
 `;
 
 const ProjectTag = styled.div`
-  margin: 0.2rem 0.2rem 0.2rem 0;
+  margin: 0.5rem 0.3rem 0.5rem 0;
   padding: 4px 8px 4px 8px;
 
   background-color: #b83b5e;
@@ -80,6 +86,16 @@ const ButtonGithub = styled(Button)`
   }
 `;
 
+const ButtonYoutube = styled(Button)`
+  background-color: transparent;
+  border: 2px solid #ec0101;
+  color: #ec0101;
+
+  :hover {
+    filter: brightness(140%);
+  }
+`;
+
 export default function ProjectCard(props) {
   // Destructuring props
   const { title, description, tags, imageURL } = props;
@@ -90,7 +106,11 @@ export default function ProjectCard(props) {
     if (props.demoURL !== undefined) {
       openURLIfPossible(props.demoURL);
     } else {
-      console.log("Demo URL is undefined");
+      console.log("Demo URL is undefined, checking if Youtube URL was passed");
+
+      if (props.youtubeURL) {
+        openURLIfPossible(props.youtubeURL);
+      }
     }
   }
 
@@ -115,11 +135,12 @@ export default function ProjectCard(props) {
   return (
     <BaseDiv>
       <Card
-        width="320px"
-        height="520px"
+        width="340px"
+        height="560px"
         fontColor="#016e9f"
-        padding="0 0 0 0"
+        padding="0.5rem"
         backgroundColor={props.theme.cardBG}
+        className="card"
       >
         <ProjectScreenshot>
           <img src={process.env.PUBLIC_URL + imageURL} alt="screenshot" />
@@ -131,13 +152,20 @@ export default function ProjectCard(props) {
               ? tags.map((tag) => <ProjectTag key={tag}>{tag}</ProjectTag>)
               : ""}
           </RowContainer>
-          <p style={{ display: "flex", flex: "1,1,0" }}>{description}</p>
+          <p style={{ display: "flex", flex: "1,1,0", marginBottom: "1rem" }}>
+            {description}
+          </p>
         </ProjectDetailsContainer>
-        <RowContainer bottom="-20px" justifyContent="space-evenly">
+        <RowContainer bottom="-30px" justifyContent="space-evenly">
           {props.demoURL ? (
             <Button type="primary" onClick={handleDemoClick}>
               Demo
             </Button>
+          ) : (
+            <React.Fragment />
+          )}
+          {props.youtubeURL ? (
+            <ButtonYoutube onClick={handleDemoClick}>Video</ButtonYoutube>
           ) : (
             <React.Fragment />
           )}
