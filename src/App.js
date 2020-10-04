@@ -156,11 +156,13 @@ function App() {
   // * * *
   // Theme can be saved to local storage - check if it's already there
   let savedTheme = window.localStorage.getItem("theme") || "light"; // get the string or set "light"
-  if (savedTheme === "light") savedTheme = themeLight;
-  if (savedTheme === "dark") savedTheme = themeDark;
+  let themeToUseOnStartUp = themeLight; // default
+
+  if (savedTheme === "light") themeToUseOnStartUp = themeLight;
+  if (savedTheme === "dark") themeToUseOnStartUp = themeDark;
 
   // Theme
-  const [currentTheme, setTheme] = useState(savedTheme);
+  const [currentTheme, setTheme] = useState(themeToUseOnStartUp);
 
   // * * *
 
@@ -230,8 +232,8 @@ function App() {
               >
                 Creative software developer with 8 years of expertise across
                 mobile and web games and applications.
-                <br /> 3+ years experience as a UI/UX Developer with modern
-                React and JavaScript.
+                <br /> 3+ years experience as a UI/UX Developer with React, Vue
+                and JavaScript.
                 <br />
                 Excellent focus, communication, and ability to learn rapidly.
                 <br />
@@ -262,25 +264,40 @@ function App() {
                     color: currentTheme.fontSecondary,
                   }}
                 >
-                  Actively looking for work in Front End development
+                  Currently working as a Frontend Developer
                 </span>
                 <br />
                 My love for visual design, combined with my desire to constantly
-                learn and improve has led me to want to work with a passionate
-                team in web development. I really enjoy using React library and
-                strive to make simple, reusable components, and not pass props
-                all over the place. 😆
-                <br />
-                I have also passed the Linkedin skills assessments on all of the
-                skills listed below.
-                <br />
-                <span>Full Resume available upon request</span>
+                learn and improve has led me to working with a great Irish
+                Fintech company,
+                <a
+                  style={{ position: "inherit", marginLeft: "0.5rem" }}
+                  href="https://bonkers.ie"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Bonkers.ie
+                </a>
+                .
+                <br />I started in October 2020 with my main tech stack using
+                Vue.
               </p>
               <RowContainer
                 alignItems="center"
                 justifyContent="flex-start"
                 overflowX="hidden"
               >
+                <motion.div
+                  whileHover={{ rotate: 180, y: -10 }}
+                  whileTap={{ scale: 0.8 }}
+                >
+                  <img
+                    src={process.env.PUBLIC_URL + "/logovue.png"}
+                    alt="react-logo"
+                    width="80px"
+                    height="80px"
+                  />
+                </motion.div>
                 <motion.div
                   whileHover={{ rotate: 180, y: -10 }}
                   whileTap={{ scale: 0.8 }}
@@ -348,7 +365,11 @@ function App() {
             <ProjectCard
               title="The Random Beer App"
               description="A private project using the BreweryDB API. Fetches a random beer and stores brewery info. Designed with mobile as a focus."
-              tags={["#Router", "#Fetch", "#FramerMotion"]}
+              tags={[
+                { value: "#Router", color: "" },
+                { value: "#Fetch", color: "" },
+                { value: "#FramerMotion", color: "#A826EB" },
+              ]}
               imageURL="/BeerScreenshot.png"
               youtubeURL="https://youtu.be/f2kSzna6f7o"
               theme={currentTheme}
@@ -356,7 +377,10 @@ function App() {
             <ProjectCard
               title="Password Generator"
               description="Using styled-components, along with the ability to select custom themes, I wanted to create a React version of a tutorial by Florin Poppin."
-              tags={["#React", "#Themes"]}
+              tags={[
+                { value: "#React", color: "#4D9BE3" },
+                { value: "#Themes", color: "" },
+              ]}
               imageURL="/PasswordGeneratorDesktop.png"
               demoURL="https://neodragoncp.github.io/password-generator/"
               githubURL="https://github.com/NeoDragonCP/password-generator"
@@ -365,7 +389,10 @@ function App() {
             <ProjectCard
               title="Currency Convertor"
               description="External API for fetching price. Uses ES6 Map and Set to store the currency symbols. Dark theme included."
-              tags={["#React", "#Fetch"]}
+              tags={[
+                { value: "#React", color: "#4D9BE3" },
+                { value: "#Fetch", color: "" },
+              ]}
               imageURL="/CurrencyConverterScreenshot.png"
               demoURL="https://neodragoncp.github.io/currency-converter/"
               githubURL="https://github.com/NeoDragonCP/currency-converter"
@@ -374,7 +401,10 @@ function App() {
             <ProjectCard
               title="This website"
               description="Custom made, reusable, styled-components. Easily change styles and expand elements using props."
-              tags={["#React", "#Components"]}
+              tags={[
+                { value: "#React", color: "#4D9BE3" },
+                { value: "#Components", color: "" },
+              ]}
               imageURL="/WebsiteCodeScreenshot.png"
               demoURL="https://neodragoncp.github.io/portfolio/index.html"
               githubURL="https://github.com/NeoDragonCP/portfolio"

@@ -318,9 +318,10 @@ export default function ContactMe(props) {
   return (
     <Base>
       <p style={{ color: props.theme.fontInvert, marginBottom: "1rem" }}>
-        I'm currently open to job offers so get in touch!
+        I am <b>NOT</b> currently open to job offers, but feel free to get in
+        touch.
         <br />
-        Email: mcvickerstephen@gmail.com
+        Or email: mcvickerstephen@gmail.com
       </p>
 
       {messageSentSuccess === true ? (

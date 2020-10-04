@@ -54,7 +54,7 @@ const ProjectTag = styled.div`
   margin: 0.5rem 0.3rem 0.5rem 0;
   padding: 4px 8px 4px 8px;
 
-  background-color: #b83b5e;
+  background-color: ${(props) => props.backgroundColor || "#b83b5e"};
   color: white;
   border-radius: 50vh;
   font-size: 12px;
@@ -150,7 +150,11 @@ export default function ProjectCard(props) {
           <h4>{title}</h4>
           <RowContainer>
             {tags !== undefined
-              ? tags.map((tag) => <ProjectTag key={tag}>{tag}</ProjectTag>)
+              ? tags.map((tag) => (
+                  <ProjectTag key={tag.value} backgroundColor={tag.color}>
+                    {tag.value}{" "}
+                  </ProjectTag>
+                ))
               : ""}
           </RowContainer>
           <p style={{ display: "flex", flex: "1,1,0", marginBottom: "1rem" }}>
