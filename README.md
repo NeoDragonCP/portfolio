@@ -24,7 +24,7 @@ Set up to run "npm run deploy" to build the production build of the site.
 
 # Link To Site
 
-https://neodragoncp.github.io/portfolio/
+https://stephenmcvicker.github.io/portfolio/
 
 # Bugs
 

@@ -382,8 +382,8 @@ function App() {
                 { value: "#Themes", color: "" },
               ]}
               imageURL="/PasswordGeneratorDesktop.png"
-              demoURL="https://neodragoncp.github.io/password-generator/"
-              githubURL="https://github.com/NeoDragonCP/password-generator"
+              demoURL="https://stephenmcvicker.github.io/password-generator/"
+              githubURL="https://github.com/stephenmcvicker/password-generator"
               theme={currentTheme}
             />
             <ProjectCard
@@ -394,8 +394,8 @@ function App() {
                 { value: "#Fetch", color: "" },
               ]}
               imageURL="/CurrencyConverterScreenshot.png"
-              demoURL="https://neodragoncp.github.io/currency-converter/"
-              githubURL="https://github.com/NeoDragonCP/currency-converter"
+              demoURL="https://stephenmcvicker.github.io/currency-converter/"
+              githubURL="https://github.com/stephenmcvicker/currency-converter"
               theme={currentTheme}
             />
             <ProjectCard
@@ -406,13 +406,13 @@ function App() {
                 { value: "#Components", color: "" },
               ]}
               imageURL="/WebsiteCodeScreenshot.png"
-              demoURL="https://neodragoncp.github.io/portfolio/index.html"
-              githubURL="https://github.com/NeoDragonCP/portfolio"
+              demoURL="https://stephenmcvicker.github.io/portfolio/index.html"
+              githubURL="https://github.com/stephenmcvicker/portfolio"
               theme={currentTheme}
             />
           </RowContainer>
           <a
-            href="https://github.com/NeoDragonCP"
+            href="https://github.com/stephenmcvicker"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -533,7 +533,7 @@ Collect Stars and spend them on boosts and shields to help you go further."
               <br /> Created with React, my own custom styled-components, and
               love ❤️. View source on{" "}
               <a
-                href="https://github.com/NeoDragonCP/portfolio"
+                href="https://github.com/stephenmcvicker/portfolio"
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{ position: "initial" }}

@@ -168,7 +168,7 @@ export default function HeaderSection() {
       <SocialMediaIcon>
         {/* using target=_blank without rel="noopener noreferrer" gives a security warning */}
         <a
-          href="https://github.com/NeoDragonCP"
+          href="https://github.com/stephenmcvicker"
           target="_blank"
           rel="noopener noreferrer"
         >
