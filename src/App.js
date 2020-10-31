@@ -288,7 +288,7 @@ function App() {
                 overflowX="hidden"
               >
                 <motion.div
-                  whileHover={{ rotate: 180, y: -10 }}
+                  whileHover={{ rotate: 10, y: 10 }}
                   whileTap={{ scale: 0.8 }}
                 >
                   <img
@@ -299,7 +299,7 @@ function App() {
                   />
                 </motion.div>
                 <motion.div
-                  whileHover={{ rotate: 180, y: -10 }}
+                  whileHover={{ rotate: 180, y: -10, scale: 1.1 }}
                   whileTap={{ scale: 0.8 }}
                 >
                   <img
@@ -310,8 +310,8 @@ function App() {
                   />
                 </motion.div>
                 <motion.div
-                  whileHover={{ rotate: 180, y: -10 }}
-                  whileTap={{ scale: 0.8 }}
+                  whileHover={{ scale: 0.8  }}
+                  whileTap={{ scale: 1.1 }}
                 >
                   <img
                     src={process.env.PUBLIC_URL + "/logojs.png"}
@@ -321,7 +321,7 @@ function App() {
                   />
                 </motion.div>
                 <motion.div
-                  whileHover={{ rotate: 180, y: -10 }}
+                  whileHover={{ rotate: -10, y: 6 }}
                   whileTap={{ scale: 0.8 }}
                 >
                   <img
@@ -332,7 +332,7 @@ function App() {
                   />
                 </motion.div>
                 <motion.div
-                  whileHover={{ rotate: 180, y: -10 }}
+                  whileHover={{ rotate: 360 }}
                   whileTap={{ scale: 0.8 }}
                 >
                   <img
@@ -434,9 +434,15 @@ function App() {
             alignItems="center"
             justifyContent="center"
           >
-            <YoutubeEmbedVideo
-              videoId="XxNpuetG8qI"
-              suggestions={false}
+            <iframe
+              width="560"
+              height="315"
+              src="https://www.youtube.com/embed/XxNpuetG8qI"
+              srcdoc="<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%}img,span{position:absolute;width:100%;top:0;bottom:0;margin:auto}span{height:1.5em;text-align:center;font:48px/1.5 sans-serif;color:white;text-shadow:0 0 0.5em black}</style><a href=https://www.youtube.com/embed/XxNpuetG8qI?autoplay=1><img src=https://img.youtube.com/vi/XxNpuetG8qI/hqdefault.jpg alt='Video ZENFORMS: Protectors Trailer'><span>▶</span></a>"
+              frameborder="0"
+              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+              title="ZENFORMS: Protectors Trailer"
               style={{ margin: "4rem 0 0 0" }}
             />
             ZENFORMS: Protectors launch trailer.
@@ -478,9 +484,15 @@ and participate in online trades, battles, and events."
                 { url: "/zpscreen4.gif", alt: "volcano-battle" },
               ]}
             />
-            <YoutubeEmbedVideo
-              videoId="xZjCAs_0-I8"
-              suggestions={false}
+            <iframe
+              width="560"
+              height="315"
+              src="https://www.youtube.com/embed/xZjCAs_0-I8"
+              srcdoc="<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%}img,span{position:absolute;width:100%;top:0;bottom:0;margin:auto}span{height:1.5em;text-align:center;font:48px/1.5 sans-serif;color:white;text-shadow:0 0 0.5em black}</style><a href=https://www.youtube.com/embed/xZjCAs_0-I8?autoplay=1><img src=https://img.youtube.com/vi/xZjCAs_0-I8/hqdefault.jpg alt='Video Shapeship Launch Trailer'><span>▶</span></a>"
+              frameborder="0"
+              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+              title="Shapeship Launch Trailer"
               style={{ margin: "4rem 0 0 0" }}
             />
             ShapeShip launch trailer.
