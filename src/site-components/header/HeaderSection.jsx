@@ -168,6 +168,7 @@ export default function HeaderSection() {
       <SocialMediaIcon>
         {/* using target=_blank without rel="noopener noreferrer" gives a security warning */}
         <a
+          aria-label="Github"
           href="https://github.com/stephenmcvicker"
           target="_blank"
           rel="noopener noreferrer"
@@ -177,6 +178,7 @@ export default function HeaderSection() {
       </SocialMediaIcon>
       <SocialMediaIcon className="social-linkedin">
         <a
+          aria-label="LinkedIn"
           href="https://www.linkedin.com/in/stephen-mcvicker-739362180/"
           target="_blank"
           rel="noopener noreferrer"
@@ -186,6 +188,7 @@ export default function HeaderSection() {
       </SocialMediaIcon>
       <SocialMediaIcon className="social-twitter">
         <a
+          aria-label="Twitter"
           href="https://twitter.com/stephenmcvicker"
           target="_blank"
           rel="noopener noreferrer"
