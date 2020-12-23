@@ -63,7 +63,7 @@ const InputBox = styled.div`
     color: #4b4b4b;
   }
 
-  span {
+  label {
     position: absolute;
     left: 0;
     padding: 0.5rem 0;
@@ -74,16 +74,16 @@ const InputBox = styled.div`
     color: ${(props) => props.colorBlue};
   }
 
-  input:focus ~ span,
-  input:valid ~ span,
-  textarea:focus ~ span,
-  textarea:valid ~ span {
+  input:focus ~ label,
+  input:valid ~ label,
+  textarea:focus ~ label,
+  textarea:valid ~ label {
     color: #04b07e;
     font-size: 0.8rem;
     transform: translateY(-2rem);
   }
-  input:invalid ~ span,
-  textarea:invalid ~ span {
+  input:invalid ~ label,
+  textarea:invalid ~ label {
     color: ${(props) => props.colorRed || "red"};
   }
 `;
@@ -331,6 +331,7 @@ export default function ContactMe(props) {
           <h3>Send Message</h3>
           <InputBox colorBlue={colorBlue} colorRed={colorRed}>
             <input
+              id="fullName"
               type="text"
               required="required"
               value={fullName}
@@ -339,10 +340,11 @@ export default function ContactMe(props) {
                 isFormValid();
               }}
             />
-            <span>Full Name</span>
+            <label for="fullName">Full Name</label>
           </InputBox>
           <InputBox colorBlue={colorBlue} colorRed={colorRed}>
             <input
+              id="email"
               type="email"
               inputMode="email"
               required="required"
@@ -352,10 +354,11 @@ export default function ContactMe(props) {
                 isFormValid();
               }}
             />
-            <span>Email</span>
+            <label for="email">Email</label>
           </InputBox>
           <InputBox colorBlue={colorBlue} colorRed={colorRed}>
             <textarea
+              id="password"
               required="required"
               rows="5"
               value={message}
@@ -364,7 +367,7 @@ export default function ContactMe(props) {
                 isFormValid();
               }}
             />
-            <span>Type your message....</span>
+            <label for="password">Type your message....</label>
           </InputBox>
           {submitButtonLoading === true ? (
             <LoadingButton backgroundColor={colorRed}>
