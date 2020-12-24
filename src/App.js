@@ -6,9 +6,6 @@ import { motion } from "framer-motion";
 
 import ReactTooltip from "react-tooltip";
 
-/* Youtube Video Player */
-import YoutubeEmbedVideo from "youtube-embed-video";
-
 /* My styled Elements */
 import SectionHeader from "./site-components/SectionHeader.jsx";
 import SectionContent from "./site-components/SectionContent.jsx";
@@ -233,12 +230,11 @@ function App() {
                 }}
               >
                 Creative software developer with 8 years of expertise across
-                mobile and web games and applications.
-                3+ years experience as a UI/UX Developer with React, Vue
-                and JavaScript.
+                games, web, and mobile applications.
+                3+ years of experience as a Frontend engineer using modern frameworks like Vue and React, while building with best practices in mind.
                 Excellent focus, communication, and ability to learn rapidly.
                 <br/>
-                <span>Born and raised in Dublin, Ireland.</span>
+                <span>Born, raised and living in Dublin, Ireland.</span>
                 </p>
                 <p
                 style={{
@@ -260,7 +256,7 @@ function App() {
                 }}
               >
                 In 2012 I started my own business upon the release of my first
-                mobile game.
+                mobile game which I developed more content regularly for the following 4 years.
                 Aside from the development work, I maintained social media
                 channels, personal websites,
                 <br /> and worked remotely with excellent people from around the
@@ -271,7 +267,7 @@ function App() {
                     color: themeColors.blueDark,
                   }}
                 >
-                  Currently working as a Frontend Developer
+                  Switch to Frontend
                 </h3>
                 <p
                 style={{
@@ -280,7 +276,8 @@ function App() {
                 }}
               >
                 My love for visual design, combined with my desire to constantly
-                learn and improve has led me to working with a great Irish
+                learn and improve has led me to frontend development for the last few years.
+                I'm currently working as a Frontend Engineer with a great Irish
                 Fintech company,
                 <a
                   style={{ position: "inherit", marginLeft: "0.5rem" }}
@@ -291,8 +288,23 @@ function App() {
                   Bonkers.ie
                 </a>
                 .
+                <br/>
                 I started in October 2020 with my main tech stack using
-                Vue, Nuxt, and I18n.
+                Vue, Nuxt (for SSR), and I18n.
+                </p>
+                <p
+                style={{
+                  fontSize: "1.1rem",
+                  padding: "1.5rem 0"
+                }}
+              >
+                I strive to have a deep understanding of the code I write. I enjoy learning as much as I can about the frameworks I use on projects.
+                <br/>
+                Lighthouse scores are a great way to keep track of your frontend of your application in the browser and I aim to always have lovely green scores across each category.
+                This website should be no different. 
+                </p>
+                <p>
+                Coded in React using Styled-Components <span aria-label="thumbs up" role="img">👍</span>.
                 </p>
               </p>
               <RowContainer
