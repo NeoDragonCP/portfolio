@@ -62,7 +62,7 @@ const themeColors = {
 
   purple: "#6A2C70",
   orange: "#FF7700",
-  mintgreen: "#16C79E",
+  mintgreen: "#04b07e",
 
   white: "#FFFFFF",
   gray: "#F2F2F2",

@@ -52,7 +52,7 @@ const InputBox = styled.div`
   input,
   textarea {
     width: 100%;
-    padding: 0.5rem 0 0.5rem 0.3rem;
+    padding: 1rem;
     margin: 1rem 0;
     border: none;
     border-bottom: 2px solid ${(props) => props.colorBlue || "yellow"};
@@ -65,8 +65,8 @@ const InputBox = styled.div`
 
   label {
     position: absolute;
-    left: 0;
-    padding: 0.5rem 0;
+    left: .6rem;
+    padding: 1rem 0;
     margin: 1rem 0 0 0.2rem;
     pointer-events: none;
     transition: all 0.3s;
@@ -75,13 +75,17 @@ const InputBox = styled.div`
   }
 
   input:focus ~ label,
-  input:valid ~ label,
-  textarea:focus ~ label,
-  textarea:valid ~ label {
-    color: #04b07e;
+  input:not([value=""])~ label,
+  textarea:focus ~ label{
     font-size: 0.8rem;
-    transform: translateY(-2rem);
+    transform: translateY(-2.5rem);
   }
+
+  input:valid ~ label,
+   textarea:valid ~ label {
+    color: #04b07e;
+  }
+
   input:invalid ~ label,
   textarea:invalid ~ label {
     color: ${(props) => props.colorRed || "red"};
