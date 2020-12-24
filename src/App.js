@@ -213,6 +213,7 @@ function App() {
         >
           <AboutMeSection>
             <img
+              loading="lazy"
               src={process.env.PUBLIC_URL + "/CPMaskLogo2.png"}
               alt="Calis Projects Logo"
               width="420px"
@@ -318,6 +319,7 @@ function App() {
                   whileTap={{ scale: 0.8 }}
                 >
                   <img
+                    loading="lazy"
                     data-tip="Vue, my current love!"
                     data-place="left"
                     src={process.env.PUBLIC_URL + "/logovue.png"}
@@ -331,6 +333,7 @@ function App() {
                   whileTap={{ scale: 0.8 }}
                 >
                   <img
+                    loading="lazy"
                     data-tip="React, the big dog in all of this."
                     data-place="bottom"
                     src={process.env.PUBLIC_URL + "/logoreact.png"}
@@ -344,6 +347,7 @@ function App() {
                   whileTap={{ scale: 1.1 }}
                 >
                   <img
+                    loading="lazy"
                     data-tip="Javascript, powering all of this."
                     data-place="bottom"
                     src={process.env.PUBLIC_URL + "/logojs.png"}
@@ -357,6 +361,7 @@ function App() {
                   whileTap={{ scale: 0.8 }}
                 >
                   <img
+                    loading="lazy"
                     data-tip="CSS, makin' stuff look good."
                     data-place="bottom"
                     src={process.env.PUBLIC_URL + "/logocss.png"}
@@ -370,6 +375,7 @@ function App() {
                   whileTap={{ scale: 0.8 }}
                 >
                   <img
+                    loading="lazy"
                     data-tip="Unity, the best game engine for an indie creator."
                     data-place="right"
                     src={process.env.PUBLIC_URL + "/logounity.png"}

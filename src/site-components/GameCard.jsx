@@ -128,6 +128,7 @@ export default function GameCard(props) {
           <ColumnContainer width="100%">
             <div className="topdetails">
               <img
+                loading="lazy"
                 className="logo"
                 src={process.env.PUBLIC_URL + appIcon}
                 alt="app-icon"
@@ -202,6 +203,7 @@ export default function GameCard(props) {
                   {screenshots !== undefined
                     ? screenshots.map((shot) => (
                         <img
+                          loading="lazy"
                           key={shot.alt}
                           src={process.env.PUBLIC_URL + shot.url}
                           alt={shot.alt}
