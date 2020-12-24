@@ -4,6 +4,8 @@ import "./App.css"; /* Basic app styling */
 import styled, { ThemeProvider } from "styled-components";
 import { motion } from "framer-motion";
 
+import ReactTooltip from "react-tooltip";
+
 /* Youtube Video Player */
 import YoutubeEmbedVideo from "youtube-embed-video";
 
@@ -60,6 +62,7 @@ const themeColors = {
 
   purple: "#6A2C70",
   orange: "#FF7700",
+  mintgreen: "#16C79E",
 
   white: "#FFFFFF",
   gray: "#F2F2F2",
@@ -216,7 +219,7 @@ function App() {
               src={process.env.PUBLIC_URL + "/CPMaskLogo2.png"}
               alt="Calis Projects Logo"
               width="420px"
-              height="260px"
+              height="auto"
             />
             <ColumnContainer
               width="100%"
@@ -226,47 +229,56 @@ function App() {
               <p
                 style={{
                   fontSize: "1.1rem",
-                  paddingTop: "3rem",
-                  paddingBottom: "4rem",
+                  padding: "1.5rem 0"
                 }}
               >
                 Creative software developer with 8 years of expertise across
                 mobile and web games and applications.
-                <br /> 3+ years experience as a UI/UX Developer with React, Vue
+                3+ years experience as a UI/UX Developer with React, Vue
                 and JavaScript.
-                <br />
                 Excellent focus, communication, and ability to learn rapidly.
-                <br />
+                <br/>
                 <span>Born and raised in Dublin, Ireland.</span>
-                <br />
-                <br />
-                <span
+                </p>
+                <p
+                style={{
+                  fontSize: "1.1rem",
+                  padding: "1.5rem 0"
+                }}
+              >
+                <h3
                   style={{
-                    fontWeight: "bold",
-                    color: currentTheme.fontSecondary,
+                    color: themeColors.blueDark,
                   }}
                 >
                   Calis Projects (logo pictured)
-                </span>
-                <br />
+                </h3>
+                <p
+                style={{
+                  fontSize: "1.1rem",
+                  padding: "1.5rem 0"
+                }}
+              >
                 In 2012 I started my own business upon the release of my first
                 mobile game.
-                <br />
                 Aside from the development work, I maintained social media
                 channels, personal websites,
                 <br /> and worked remotely with excellent people from around the
                 world.
-                <br />
-                <br />
-                <span
+                </p>
+                <h3
                   style={{
-                    fontWeight: "bold",
-                    color: currentTheme.fontSecondary,
+                    color: themeColors.blueDark,
                   }}
                 >
                   Currently working as a Frontend Developer
-                </span>
-                <br />
+                </h3>
+                <p
+                style={{
+                  fontSize: "1.1rem",
+                  padding: "1.5rem 0"
+                }}
+              >
                 My love for visual design, combined with my desire to constantly
                 learn and improve has led me to working with a great Irish
                 Fintech company,
@@ -279,22 +291,26 @@ function App() {
                   Bonkers.ie
                 </a>
                 .
-                <br />I started in October 2020 with my main tech stack using
-                Vue.
+                I started in October 2020 with my main tech stack using
+                Vue, Nuxt, and I18n.
+                </p>
               </p>
               <RowContainer
                 alignItems="center"
                 justifyContent="flex-start"
                 overflowX="hidden"
               >
+                <ReactTooltip/>
                 <motion.div
                   whileHover={{ rotate: 10, y: 10 }}
                   whileTap={{ scale: 0.8 }}
                 >
                   <img
+                    data-tip="Vue, my current love!"
+                    data-place="left"
                     src={process.env.PUBLIC_URL + "/logovue.png"}
                     alt="react-logo"
-                    width="80px"
+                    width="auto"
                     height="80px"
                   />
                 </motion.div>
@@ -303,9 +319,11 @@ function App() {
                   whileTap={{ scale: 0.8 }}
                 >
                   <img
+                    data-tip="React, the big dog in all of this."
+                    data-place="bottom"
                     src={process.env.PUBLIC_URL + "/logoreact.png"}
                     alt="react-logo"
-                    width="80px"
+                    width="auto"
                     height="80px"
                   />
                 </motion.div>
@@ -314,9 +332,11 @@ function App() {
                   whileTap={{ scale: 1.1 }}
                 >
                   <img
+                    data-tip="Javascript, powering all of this."
+                    data-place="bottom"
                     src={process.env.PUBLIC_URL + "/logojs.png"}
                     alt="javascript-logo"
-                    width="80px"
+                    width="auto"
                     height="80px"
                   />
                 </motion.div>
@@ -325,9 +345,11 @@ function App() {
                   whileTap={{ scale: 0.8 }}
                 >
                   <img
+                    data-tip="CSS, makin' stuff look good."
+                    data-place="bottom"
                     src={process.env.PUBLIC_URL + "/logocss.png"}
                     alt="css-logo"
-                    width="80px"
+                    width="auto"
                     height="80px"
                   />
                 </motion.div>
@@ -336,9 +358,11 @@ function App() {
                   whileTap={{ scale: 0.8 }}
                 >
                   <img
+                    data-tip="Unity, the best game engine for an indie creator."
+                    data-place="right"
                     src={process.env.PUBLIC_URL + "/logounity.png"}
                     alt="unity-game-engine-logo"
-                    width="80px"
+                    width="auto"
                     height="80px"
                   />
                 </motion.div>

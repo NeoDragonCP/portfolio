@@ -64,7 +64,8 @@ const GameDetailsSection = styled.div`
     img {
       padding-right: 2rem;
       padding-bottom: 1rem;
-      width: 480px;
+      object-fit: contain;
+      width: auto;
       height: 320px;
     }
   }
