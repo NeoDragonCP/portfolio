@@ -43,6 +43,17 @@ const AboutMeSection = styled.div`
   }
 `;
 
+const YouTubeVideoContainer = styled.div`
+  width: 560px;
+  height: 315px;
+  margin: 2rem 0;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    height: 360px;
+  }
+`;
+
 /* Themes */
 // * * * * *
 
@@ -98,6 +109,8 @@ const themeLight = {
   fontSecondary: `${themeColors.grayDark}`,
   fontInvert: `${themeColors.white}`,
 
+  webProjectHeader: `${themeColors.blueDark}`,
+
   linkColor: `${themeColors.redLight}`,
 
   baseColors: themeColors,
@@ -134,6 +147,8 @@ const themeDark = {
   fontPrimary: `${themeColors.gray}`,
   fontSecondary: `${themeColors.grayDark}`,
   fontInvert: `${themeColors.white}`,
+
+  webProjectHeader: `${themeColors.blueLight}`,
 
   linkColor: `${themeColors.redLight}`,
 
@@ -212,22 +227,17 @@ function App() {
           textAlign="left"
         >
           <AboutMeSection>
-            <img
-              loading="lazy"
-              src={process.env.PUBLIC_URL + "/CPMaskLogo2.png"}
-              alt="Calis Projects Logo"
-              width="420px"
-              height="auto"
-            />
             <ColumnContainer
               width="100%"
               alignItems="center"
               justifyContent="center"
+              mobilePadding="2rem"
+              padding="2rem 20rem"
             >
               <p
                 style={{
                   fontSize: "1.1rem",
-                  padding: "1.5rem 0"
+                  margin: "1.5rem 0"
                 }}
               >
                 Creative software developer with 8 years of expertise across
@@ -237,18 +247,25 @@ function App() {
                 <br/>
                 <span>Born, raised and living in Dublin, Ireland.</span>
                 </p>
-                <p
+                <div
                 style={{
                   fontSize: "1.1rem",
                   padding: "1.5rem 0"
                 }}
               >
+                <img 
+                      loading="lazy"
+                      src={process.env.PUBLIC_URL + "/CPMaskLogo2.png"}
+                      alt="Calis Projects Logo"
+                      width="300"
+                      height="auto"
+                    />
                 <h3
                   style={{
                     color: themeColors.blueDark,
                   }}
                 >
-                  Calis Projects (logo pictured)
+                  Calis Projects
                 </h3>
                 <p
                 style={{
@@ -263,6 +280,16 @@ function App() {
                 <br /> and worked remotely with excellent people from around the
                 world.
                 </p>
+                <img 
+                      loading="lazy"
+                      src="https://web-assets.bonkers.ie/maverick/img/bonkers-logo-white.76cceab.svg" 
+                      alt="bonkers logo"
+                      width="200"
+                      height="auto"
+                      style={{backgroundColor: "#56c55d",
+                              borderRadius: "4px",
+                              padding: "1rem"}}
+                    />
                 <h3
                   style={{
                     color: themeColors.blueDark,
@@ -286,7 +313,7 @@ function App() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Bonkers.ie
+                  bonkers.ie
                 </a>
                 .
                 <br/>
@@ -307,11 +334,13 @@ function App() {
                 <p>
                 Coded in React using Styled-Components <span aria-label="thumbs up" role="img">👍</span>.
                 </p>
-              </p>
+              </div>
               <RowContainer
                 alignItems="center"
                 justifyContent="flex-start"
+                mobileAlignItems = "center"
                 overflowX="hidden"
+                wrap="wrap"
               >
                 <ReactTooltip/>
                 <motion.div
@@ -390,7 +419,7 @@ function App() {
         </SectionContent>
         <SectionHeader
           backgroundColor={currentTheme.bgBlueLight}
-          color={currentTheme.fontPrimary}
+          color={currentTheme.webProjectHeader}
           ref={webProjectsRef}
         >
           Web Projects
@@ -476,20 +505,18 @@ function App() {
             alignItems="center"
             justifyContent="center"
           >
+            <YouTubeVideoContainer>
             <iframe
-              width="560"
-              height="315"
+              width="100%"
+              height="100%"
               src="https://www.youtube.com/embed/XxNpuetG8qI"
-              srcdoc="<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%}img,span{position:absolute;width:100%;top:0;bottom:0;margin:auto}span{height:1.5em;text-align:center;font:48px/1.5 sans-serif;color:white;text-shadow:0 0 0.5em black}</style><a href=https://www.youtube.com/embed/XxNpuetG8qI?autoplay=1><img src=https://img.youtube.com/vi/XxNpuetG8qI/hqdefault.jpg alt='Video ZENFORMS: Protectors Trailer'><span>▶</span></a>"
-              frameborder="0"
+              srcDoc="<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%}img,span{position:absolute;width:100%;top:0;bottom:0;margin:auto}span{height:1.5em;text-align:center;font:48px/1.5 sans-serif;color:white;text-shadow:0 0 0.5em black}</style><a href=https://www.youtube.com/embed/XxNpuetG8qI?autoplay=1><img src=https://img.youtube.com/vi/XxNpuetG8qI/hqdefault.jpg alt='Video ZENFORMS: Protectors Trailer'><span>▶</span></a>"
+              frameBorder="0"
               allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
+              allowFullScreen
               title="ZENFORMS: Protectors Trailer"
-              style={{ margin: "4rem 0 0 0" }}
             />
-            ZENFORMS: Protectors launch trailer.
-            <br />
-            <br />
+            </YouTubeVideoContainer>
             <GameCard
               theme={currentTheme}
               appIcon="/zenformsappicon.png"
@@ -526,20 +553,18 @@ and participate in online trades, battles, and events."
                 { url: "/zpscreen4.gif", alt: "volcano-battle" },
               ]}
             />
-            <iframe
-              width="560"
-              height="315"
-              src="https://www.youtube.com/embed/xZjCAs_0-I8"
-              srcdoc="<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%}img,span{position:absolute;width:100%;top:0;bottom:0;margin:auto}span{height:1.5em;text-align:center;font:48px/1.5 sans-serif;color:white;text-shadow:0 0 0.5em black}</style><a href=https://www.youtube.com/embed/xZjCAs_0-I8?autoplay=1><img src=https://img.youtube.com/vi/xZjCAs_0-I8/hqdefault.jpg alt='Video Shapeship Launch Trailer'><span>▶</span></a>"
-              frameborder="0"
-              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
-              title="Shapeship Launch Trailer"
-              style={{ margin: "4rem 0 0 0" }}
-            />
-            ShapeShip launch trailer.
-            <br />
-            <br />
+            <YouTubeVideoContainer>
+              <iframe
+                width="100%"
+                height="100%"
+                src="https://www.youtube.com/embed/xZjCAs_0-I8"
+                srcDoc="<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%}img,span{position:absolute;width:100%;top:0;bottom:0;margin:auto}span{height:1.5em;text-align:center;font:48px/1.5 sans-serif;color:white;text-shadow:0 0 0.5em black}</style><a href=https://www.youtube.com/embed/xZjCAs_0-I8?autoplay=1><img src=https://img.youtube.com/vi/xZjCAs_0-I8/hqdefault.jpg alt='Video Shapeship Launch Trailer'><span>▶</span></a>"
+                frameBorder="0"
+                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                title="Shapeship Launch Trailer"
+              />
+            </YouTubeVideoContainer>
             <GameCard
               appIcon="/shapeshipappicon.png"
               title="ShapeShip"

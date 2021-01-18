@@ -278,7 +278,7 @@ export default function ContactMe(props) {
   function handleSubmit(e) {
     e.preventDefault();
 
-    if (checkFormIsValid() === false) {
+    if (formIsValid=== false) {
       console.log("Form is invalid");
       return;
     }
@@ -344,7 +344,7 @@ export default function ContactMe(props) {
                 isFormValid();
               }}
             />
-            <label for="fullName">Full Name</label>
+            <label htmlFor="fullName">Full Name</label>
           </InputBox>
           <InputBox colorBlue={colorBlue} colorRed={colorRed}>
             <input
@@ -358,7 +358,7 @@ export default function ContactMe(props) {
                 isFormValid();
               }}
             />
-            <label for="email">Email</label>
+            <label htmlFor="email">Email</label>
           </InputBox>
           <InputBox colorBlue={colorBlue} colorRed={colorRed}>
             <textarea
@@ -371,7 +371,7 @@ export default function ContactMe(props) {
                 isFormValid();
               }}
             />
-            <label for="password">Type your message....</label>
+            <label htmlFor="password">Type your message....</label>
           </InputBox>
           {submitButtonLoading === true ? (
             <LoadingButton backgroundColor={colorRed}>

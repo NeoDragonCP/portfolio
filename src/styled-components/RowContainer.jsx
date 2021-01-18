@@ -18,7 +18,7 @@ const RowContainer = styled.div`
   bottom: ${(props) => props.bottom || ""};
 
   display: flex;
-  flex-wrap: nowrap;
+  flex-wrap:  ${(props) => props.wrap || "nowrap"};
   flex: 1, 1, 0;
 
   align-items: ${(props) => props.alignItems || ""};
@@ -45,6 +45,11 @@ const RowContainer = styled.div`
     display: inline-block;
     margin-left: 2rem;
   }
+
+  @media (max-width: 768px) {
+    justify-content: ${(props) => props.mobileAlignItems || "revert"};;
+  }
+
 `;
 
 export default RowContainer;

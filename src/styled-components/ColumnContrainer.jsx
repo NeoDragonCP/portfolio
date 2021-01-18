@@ -33,6 +33,10 @@ const ColumnContainer = styled.div`
     flex-shrink 0
     flex-basis auto */
   }
+
+  @media (max-width: 768px) {
+    padding: ${(props) => props.mobilePadding || "revert"};;
+  }
 `;
 
 export default ColumnContainer;
