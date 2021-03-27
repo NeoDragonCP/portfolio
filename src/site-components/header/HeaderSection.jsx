@@ -208,7 +208,7 @@ export default function HeaderSection() {
           animate={{ x: [10, 0], opacity: [0, 1] }}
           transition={{ delay: 0.5 * 2, duration: 0.2, ease: "easeOut" }}
         >
-          UI Developer
+          Front End Developer
         </motion.p>
         <motion.p
           animate={{ x: [20, 0], opacity: [0, 1] }}
