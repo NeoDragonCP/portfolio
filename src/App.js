@@ -434,6 +434,20 @@ function App() {
             alignItems="center"
           >
             <ProjectCard
+              title="Mobile 'Friend List' UI"
+              description="Designed to feel more like a native 'app' when added to your mobile phone screen thanks to some handy meta tags."
+              tags={[
+                { value: "#Vue", color: "#04b07e" },
+                { value: "#Fetch", color: "" },
+                { value: "#Mobile", color: "" },
+                { value: "#Meta", color: "" },
+              ]}
+              imageURL="/friendlistscreenshot.png"
+              demoURL="https://stephenmcvicker.github.io/friend-list-pwa/"
+              githubURL="https://github.com/StephenMcVicker/friend-list-pwa"
+              theme={currentTheme}
+            />
+            <ProjectCard
               title="The Random Beer App"
               description="A private project using the BreweryDB API. Fetches a random beer and stores brewery info. Designed with mobile as a focus."
               tags={[
