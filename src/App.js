@@ -448,6 +448,19 @@ function App() {
               theme={currentTheme}
             />
             <ProjectCard
+              title="Gify Search"
+              description="One of my earlier experiments when learning Vue and deploying to Netlify."
+              tags={[
+                { value: "#Vue", color: "#04b07e" },
+                { value: "#netlify", color: "" },
+                { value: "#Gify", color: "" },
+              ]}
+              imageURL="/Gifyscreenshot.png"
+              demoURL="https://giphy-search-94c768.netlify.app/"
+              githubURL="https://github.com/StephenMcVicker/friend-list-pwa"
+              theme={currentTheme}
+            />
+            <ProjectCard
               title="The Random Beer App"
               description="A private project using the BreweryDB API. Fetches a random beer and stores brewery info. Designed with mobile as a focus."
               tags={[
